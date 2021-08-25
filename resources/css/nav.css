@@ -1,0 +1,9 @@
+
+/* Posición del MENU: https://www.udemy.com/course/crea-un-ecommerce-con-laravel-livewire-tailwind-y-alpine/learn/lecture/26014406?start=120#notes */
+#navigation-menu{
+    height: calc(100vh - 4rem)
+}
+
+.navigation-link:hover .navigation-submenu {
+    display: block !important;
+}
