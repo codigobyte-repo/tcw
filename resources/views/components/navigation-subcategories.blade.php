@@ -17,7 +17,9 @@
         </ul>
     </div>
     
-    <div class="col-span-2">
-        <img class="h-64 w-full object-cover object-center" src="{{ Storage::url($category->image) }}" alt="{{$category->name}}">
-    </div>
+    @if(!empty($category->image))
+        <div class="col-span-2">
+            <img class="h-64 w-full object-cover object-center" src="{{ Storage::url($category->image) }}" alt="{{$category->name}}">
+        </div>
+    @endif
 </div>
