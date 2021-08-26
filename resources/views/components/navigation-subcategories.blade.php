@@ -5,13 +5,15 @@
         <p class="text-lg font-bold ml-4 text-trueGray-500 mb-3 border-l-2 pl-2 border-purple-600">Subcategorías</p>
 
         <ul>
-            @foreach($category->subcategories as $subcategory)
-                <li>
-                    <a href="{{ route('posts.category', $category) . '?subcategoria=' . $subcategory->slug}}" class="text-trueGray-500 inline-block font-semibold py-1 px-4 hover:text-purple-500">
-                        {{ $subcategory->name }}
-                    </a>
-                </li>
-            @endforeach
+            @if($category->subcategories)
+                @foreach($category->subcategories as $subcategory)
+                    <li>
+                        <a href="{{ route('posts.category', $category) . '?subcategoria=' . $subcategory->slug}}" class="text-trueGray-500 inline-block font-semibold py-1 px-4 hover:text-purple-500">
+                            {{ $subcategory->name }}
+                        </a>
+                    </li>
+                @endforeach
+            @endif
         </ul>
     </div>
     
