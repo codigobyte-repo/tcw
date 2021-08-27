@@ -15,7 +15,7 @@
                     si no hacemos esto la clase mr-4 al final deja un espacio de esta manera no se aplica el mr-4--}}
                     <li class="bg-purple-600 rounded-lg shadow ml-1 {{ $loop->last ? '' : 'sm:mr-4' }}">
                         <article>
-                            @if(($post->images)->isNotEmpty())
+                            @if(!empty($post->images->url))
                               <figure>
                                   <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($post->images->first()->url) }}" alt="{{$post->name}}">
                               </figure>
