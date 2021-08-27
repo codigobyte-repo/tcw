@@ -3,9 +3,7 @@
     {{-- HEADER --}}
     @if (!auth()->user())
 
-        <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter"
-
-            style="background-image: url({{asset('img/fondo/bg-principal4.jpg')}});">
+        <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter">
             
             <div class="grid grid-cols-1 h-screen justify-center items-center">
                 <div class="text-center">
@@ -49,7 +47,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             @foreach($posts as $post)
-                <!-- @if($loop->first) col-span-2 @endif preguntamos si es la primera vuelta del ciclo y si es ponemos col-span-2 a la imagen -->
+                
                 <article class="w-full mb-12 h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" 
                     style="
                         @if($post->images) 
