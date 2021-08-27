@@ -19,6 +19,10 @@
                               <figure>
                                   <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($post->images->first()->url) }}" alt="{{$post->name}}">
                               </figure>
+                            @else
+                              <figure>
+                                <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="{{$post->name}}">
+                              </figure>
                             @endif
 
                             <div class="py-4 px-6">
