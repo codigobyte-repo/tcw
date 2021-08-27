@@ -48,7 +48,7 @@
         {{-- POST PRINCIPALES --}}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- @if($loop->first) col-span-2 @endif preguntamos si es la primera vuelta del ciclo y si es ponemos col-span-2 a la imagen -->
+            
             {{-- @foreach($posts as $post)
                 <article class="w-full mb-12 h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" 
                     style="background-image: url(@if($post->images) {{ Storage::url($post->images->first()->url) }} @else {{asset('img/fondo/fondoPost.webp')}} @endif)">
