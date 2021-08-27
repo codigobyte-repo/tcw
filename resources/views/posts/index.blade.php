@@ -1,34 +1,36 @@
 <x-app-layout>
 
     {{-- HEADER --}}
-    <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter"
+    @if (!auth()->user())
 
-        style="background-image: url({{asset('img/fondo/bg-principal4.jpg')}});">
-        
-        <div class="grid grid-cols-1 h-screen justify-center items-center">
-            <div class="text-center">
-                
-                <h1 class="hidden md:block z-40 text-5xl text-white font-extrabold animate__animated animate__backInDown py-4"><span class="xl:text-6xl sm:text-4xl">CONTRATÁ</span> <span class="xl:text-7xl sm:text-4xl text-purple-600 bg-white px-4">ON-LINE</span></h1>
-                <h1 class="md:hidden z-40 text-5xl text-white font-extrabold animate__animated animate__backInDown py-4">CONTRATÁ ON-LINE</span></h1>
-                <h1 class="z-40 sm:text-3xl text-white font-extrabold animate__animated animate__backInDown">EL MEJOR PROYECTO A TU MEDIDA</h1>
-                
-                {{-- <p class="z-40 text-4xl text-white font-bold animate__animated animate__backInLeft">Encuentra soluciones garantizadas</p> --}}
+        <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter"
 
-                <div class="py-10">
-                    <a href="#home_section" class="bg-purple-600 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 hover:border-transparent px-6 rounded-full xl:text-3xl lg:text-2xl md:text-2xl sm:text-1xl">
-                        Explorar soluciones
-                    </a>
-                    <img class="h-12 w-12 mt-10 mx-auto animate__animated animate__bounce" src="{{ asset('img/icons/scroll.svg') }}" alt="Scroll">
+            style="background-image: url({{asset('img/fondo/bg-principal4.jpg')}});">
+            
+            <div class="grid grid-cols-1 h-screen justify-center items-center">
+                <div class="text-center">
+                    
+                    <h1 class="hidden md:block z-40 text-5xl text-white font-extrabold animate__animated animate__backInDown py-4"><span class="xl:text-6xl sm:text-4xl">CONTRATÁ</span> <span class="xl:text-7xl sm:text-4xl text-purple-600 bg-white px-4">ON-LINE</span></h1>
+                    <h1 class="md:hidden z-40 text-5xl text-white font-extrabold animate__animated animate__backInDown py-4">CONTRATÁ ON-LINE</span></h1>
+                    <h1 class="z-40 sm:text-3xl text-white font-extrabold animate__animated animate__backInDown">EL MEJOR PROYECTO A TU MEDIDA</h1>
+
+                    <div class="py-10">
+                        <a href="#home_section" class="bg-purple-600 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 hover:border-transparent px-6 rounded-full xl:text-3xl lg:text-2xl md:text-2xl sm:text-1xl">
+                            Explorar soluciones
+                        </a>
+                        {{-- <img class="h-12 w-12 mt-10 mx-auto animate__animated animate__bounce" src="{{ asset('img/icons/scroll.svg') }}" alt="Scroll"> --}}
+                    </div>
+                    
                 </div>
-                
             </div>
         </div>
-    </div>
-    {{-- FIN HEADER --}}
+        {{-- FIN HEADER --}}
 
-    <section id="home_section">
-        <div class="bg-wave-pattern h-6 bg-repeat-x relative -top-2"></div>
-    </section>
+        <section id="home_section">
+            <div class="bg-wave-pattern h-6 bg-repeat-x relative -top-2"></div>
+        </section>
+
+    @endif
 
     <div class="container py-8">
         

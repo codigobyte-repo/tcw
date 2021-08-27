@@ -39,9 +39,11 @@
                     </a>
                 @endif
 
-                <x-jet-button class="ml-4">
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 ml-2" href="{{ route('register') }}">registrarse</a>
+
+                <x-button-purple-btn class="ml-4">
                     {{ __('Log in') }}
-                </x-jet-button>
+                </x-button-purple-btn>
             </div>
         </form>
     </x-jet-authentication-card>
