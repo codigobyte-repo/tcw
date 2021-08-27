@@ -18,7 +18,7 @@
                         <a href="#home_section" class="bg-purple-600 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 hover:border-transparent px-6 rounded-full xl:text-3xl lg:text-2xl md:text-2xl sm:text-1xl">
                             Explorar soluciones
                         </a>
-                        {{-- <img class="h-12 w-12 mt-10 mx-auto animate__animated animate__bounce" src="{{ asset('img/icons/scroll.svg') }}" alt="Scroll"> --}}
+                        <img class="h-12 w-12 mt-10 mx-auto animate__animated animate__bounce" src="{{ asset('img/icons/scroll.svg') }}" alt="Scroll">
                     </div>
                     
                 </div>
