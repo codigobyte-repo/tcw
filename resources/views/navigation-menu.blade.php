@@ -21,6 +21,10 @@
                         Mis publicaciones
                     </x-jet-nav-link>
 
+                    <x-jet-nav-link href="{{ route('publisher.posts.create') }}" :active="request()->routeIs('publisher.posts.create')">
+                        Crear publicación
+                    </x-jet-nav-link>
+
                     @can('publisher.orders.index')
                         <x-jet-nav-link href="{{ route('publisher.orders.index') }}" :active="request()->routeIs('publisher.orders.*')">
                             Ordenes
@@ -135,7 +139,7 @@
             </x-jet-responsive-nav-link>
 
             <x-jet-responsive-nav-link href="{{ route('publisher.posts.create') }}" :active="request()->routeIs('publisher.posts.create')">
-                Publicar
+                Crear Publicación
             </x-jet-responsive-nav-link>
 
             @can('publisher.orders.index')

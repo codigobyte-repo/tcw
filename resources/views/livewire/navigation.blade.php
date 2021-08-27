@@ -29,7 +29,11 @@
                 {{-- FIN MENU HAMBURGUERS CATEGORIAS --}}
 
                 <div class="hidden lg:block">
-                    <a href="{{route('register')}}" class="inline-flex items-center justify-center mt-1 p-2 font-bold text-white hover:text-white bg-purple-600 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">Crear publicación</a>
+                    @if (auth()->user())
+                        <a href="{{route('publisher.posts.create')}}" class="inline-flex items-center justify-center mt-1 p-2 font-bold text-white hover:text-white bg-purple-600 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">Crear publicación</a>
+                    @else
+                        <a href="{{route('register')}}" class="inline-flex items-center justify-center mt-1 p-2 font-bold text-white hover:text-white bg-purple-600 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">Crear publicación</a>
+                    @endif
                 </div>            
 
             </div>
