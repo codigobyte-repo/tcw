@@ -28,6 +28,7 @@ class PostController extends Controller
         }        
 
         $posts = Post::where('status', 2)->latest()->paginate(8);
+
         /* La siguiente consulta: 
         $posts = Post::where('status', 2)->latest()->paginate(8);
         Se cambia por la siguiente funcionalidad para trabajar la CACHE
