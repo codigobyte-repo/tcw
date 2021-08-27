@@ -55,13 +55,13 @@
                     
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         
-                        <div>
+                        {{-- <div>
                             @foreach($post->tags as $tag)
                                 
                                 <a href="{{ route('posts.tag', $tag) }}" class="bg-{{$tag->color}}-600 inline-block my-1 px-3 h-6 text-white rounded-full">{{$tag->name}}</a>
 
                             @endforeach
-                        </div>
+                        </div> --}}
 
                         <h1 class="text-4xl text-white leading-8 font-bold mt-2">
                             <a href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
