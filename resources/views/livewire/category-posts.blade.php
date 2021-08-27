@@ -16,9 +16,7 @@
                     <li class="bg-purple-600 rounded-lg shadow ml-1 {{ $loop->last ? '' : 'sm:mr-4' }}">
                         <article>
                             <figure>
-                                @if ($post->images)  
-                                  <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($post->images->first()->url) }}" alt="{{$post->name}}">
-                                @endif
+                                <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($post->images->first()->url) }}" alt="{{$post->name}}">
                             </figure>
 
                             <div class="py-4 px-6">
