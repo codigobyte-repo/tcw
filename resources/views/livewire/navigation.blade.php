@@ -61,6 +61,10 @@
                                     <a href="{{ route('publisher.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mis publicaciones</a>
                                 @endcan
 
+                                @can('publisher.index')
+                                    <a href="{{ route('publisher.posts.create') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Crear publicación</a>
+                                @endcan
+
                                 <a href="{{ route('orders.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mis pedidos</a>                                
                                 
                                 {{-- PERMISO ADMIN.HOME INFO: https://youtu.be/Ox3WRl6sJrw?list=PLZ2ovOgdI-kX3XFj77zlvSQYhJyJSYQWr&t=134 --}}

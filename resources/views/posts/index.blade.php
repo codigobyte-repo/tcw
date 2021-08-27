@@ -51,7 +51,7 @@
             @foreach($posts as $post)
                 <!-- @if($loop->first) col-span-2 @endif preguntamos si es la primera vuelta del ciclo y si es ponemos col-span-2 a la imagen -->
                 <article class="w-full mb-12 h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" 
-                    style="background-image: url(@if($post->images) {{ Storage::url($post->images->first()->url) }} @else {{asset('img/fondo/fondoPost.webp')}} @endif)">
+                    style="background-image:@if($post->images) url({{ Storage::url($post->images->first()->url) }} @else {{asset('img/fondo/fondoPost.webp')}} @endif)">
                     
                     <div class="w-full h-full px-8 flex flex-col justify-center">
                         
