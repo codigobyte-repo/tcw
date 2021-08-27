@@ -3,7 +3,9 @@
     {{-- HEADER --}}
     @if (!auth()->user())
 
-        <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter">
+        <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter"
+
+            style="background-image: url({{asset('img/fondo/bg-principal4.jpg')}});">
             
             <div class="grid grid-cols-1 h-screen justify-center items-center">
                 <div class="text-center">
@@ -50,9 +52,11 @@
                 
                 <article class="w-full mb-12 h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" 
                     style="
-                        
+                        @if(!empty($post->images)) 
+                            background-image:url({{ Storage::url($post->images->first()->url) }}) 
+                        @else 
                             background-image:url({{asset('img/fondo/fondoPost.webp')}}) 
-                        
+                        @endif
                         ">
                     
                     <div class="w-full h-full px-8 flex flex-col justify-center">
