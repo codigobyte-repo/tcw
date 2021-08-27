@@ -20,62 +20,59 @@
                 </p>
               </div>
             </div>
-            @if(!empty($categories) AND !empty($brands))
-              <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
-                <div>
-                  <p class="font-semibold tracking-wide text-teal-accent-400">
-                    Categorías
-                  </p>
-                  <ul class="mt-2 space-y-2">
-                      @foreach($categories as $category)    
-                          <li>
-                          <a href="{{ route('posts.category', $category) }}" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">{{ $category->name }}</a>
-                          </li>
-                      @endforeach
-                  </ul>
-                </div>
-                <div>
-                  <p class="font-semibold tracking-wide text-teal-accent-400">Ultimas Subcategorías</p>
-                  <ul class="mt-2 space-y-2">
-                      @foreach($category->subcategories as $subcategory)
-                          <li>
-                              <a href="{{ route('posts.category', $category) . '?subcategoria=' . $subcategory->slug}}" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">{{ $subcategory->name }}</a>
-                          </li>
-                      @endforeach
-                  </ul>
-                </div>
-                <div>
-                  <p class="font-semibold tracking-wide text-teal-accent-400">Marcas</p>
-                  <ul class="mt-2 space-y-2">
-                      @foreach($brands as $brand)
-                          <li>
-                              <span class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">{{$brand->name}}</span>
-                          </li>
-                      @endforeach
-                  </ul>
-                </div>
-                <div>
-                  <p class="font-semibold tracking-wide text-teal-accent-400">
-                    Nosotros
-                  </p>
-                  <ul class="mt-2 space-y-2">
-                    <li>
-                      <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Políticas de privacidad</a>
-                    </li>
-                    <li>
-                      <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Términos y servicios</a>
-                    </li>
-                    <li>
-                      <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Soporte</a>
-                    </li>
-                    <li>
-                      <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Partners</a>
-                    </li>
-                  </ul>
-                </div>
+            <div class="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
+              <div>
+                <p class="font-semibold tracking-wide text-teal-accent-400">
+                  Categorías
+                </p>
+                <ul class="mt-2 space-y-2">
+                    @foreach($categories as $category)    
+                        <li>
+                        <a href="{{ route('posts.category', $category) }}" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
               </div>
-            @endif
-
+              <div>
+                <p class="font-semibold tracking-wide text-teal-accent-400">Ultimas Subcategorías</p>
+                <ul class="mt-2 space-y-2">
+                    @foreach($category->subcategories as $subcategory)
+                        <li>
+                            <a href="{{ route('posts.category', $category) . '?subcategoria=' . $subcategory->slug}}" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">{{ $subcategory->name }}</a>
+                        </li>
+                    @endforeach
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold tracking-wide text-teal-accent-400">Marcas</p>
+                <ul class="mt-2 space-y-2">
+                    @foreach($brands as $brand)
+                        <li>
+                            <span class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">{{$brand->name}}</span>
+                        </li>
+                    @endforeach
+                </ul>
+              </div>
+              <div>
+                <p class="font-semibold tracking-wide text-teal-accent-400">
+                  Nosotros
+                </p>
+                <ul class="mt-2 space-y-2">
+                  <li>
+                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Políticas de privacidad</a>
+                  </li>
+                  <li>
+                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Términos y servicios</a>
+                  </li>
+                  <li>
+                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Soporte</a>
+                  </li>
+                  <li>
+                    <a href="/" class="transition-colors duration-300 text-deep-purple-50 hover:text-teal-accent-400">Partners</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
             <p class="text-sm text-gray-100">

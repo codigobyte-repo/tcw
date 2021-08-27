@@ -29,8 +29,7 @@
                 {{-- FIN MENU HAMBURGUERS CATEGORIAS --}}
 
                 <div class="hidden lg:block">
-                    <a href="{{route('login')}}" class="inline-flex items-center justify-center mt-1 p-2 text-white hover:text-white hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">Conviertete en vendedor</a>
-                    <a href="{{route('register')}}" class="inline-flex items-center justify-center mt-1 p-2 text-white hover:text-white hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">Solicitud de búsqueda</a>
+                    <a href="{{route('register')}}" class="inline-flex items-center justify-center mt-1 p-2 font-bold text-white hover:text-white hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">Crear publicación</a>
                 </div>            
 
             </div>
