@@ -52,11 +52,15 @@
                 
                 <article class="w-full mb-12 h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" 
                     style="
-                        @if(!empty($post->images->url))
-                            background-image:url({{ Storage::url($post->images->url) }}) 
+                        @isset($post->images)
+                            @forelse($post->images as $img)
+                                background-image:url({{ Storage::url($img->url) }}) 
+                            @empty
+                                background-image:url({{asset('img/fondo/fondoPost.webp')}}) 
+                            @endforelse
                         @else 
                             background-image:url({{asset('img/fondo/fondoPost.webp')}}) 
-                        @endif
+                        @endisset
                         ">
                     
                     <div class="w-full h-full px-8 flex flex-col justify-center">
@@ -70,7 +74,7 @@
                         </div> --}}
 
                         <h1 class="text-4xl text-white leading-8 font-bold mt-2">
-                            <a href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
+                            <a class="capitalize" href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
                         </h1>
 
                     </div>

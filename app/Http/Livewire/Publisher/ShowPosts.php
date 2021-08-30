@@ -22,7 +22,10 @@ class ShowPosts extends Component
     
     public function render()
     {
-        $posts = Post::where('name', 'like', '% ' . $this->search . '%')->where('user_id', auth()->user()->id)->paginate(10);
+        $posts = Post::where('name', 'like', '%'.$this->search.'%')
+                        ->where('user_id', auth()->user()->id)
+                        ->latest('id')
+                        ->paginate(10);
 
         /* layout('layouts.publisher'); con esto le indicamos a livewire que debe usar por default la plantilla
         creada por nosotros resource->view->layouts->publisher.blade.php */

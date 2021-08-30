@@ -15,10 +15,16 @@
                     si no hacemos esto la clase mr-4 al final deja un espacio de esta manera no se aplica el mr-4--}}
                     <li class="bg-purple-600 rounded-lg shadow ml-1 {{ $loop->last ? '' : 'sm:mr-4' }}">
                         <article>
-                            @if(!empty($post->images->url))
-                              <figure>
+                            @if($post->images)
+
+                              @forelse($post->images as $img)
+                                  <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($img->url) }}" alt="{{$post->name}}">
+                              @empty
+                                  <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="{{$post->name}}">
+                              @endforelse
+                              {{-- <figure>
                                   <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($post->images->first()->url) }}" alt="{{$post->name}}">
-                              </figure>
+                              </figure> --}}
                             @else
                               <figure>
                                 <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="{{$post->name}}">

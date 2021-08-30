@@ -40,6 +40,9 @@
                                 Categoría
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Calificación
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Estado
                                 </th>
                                 <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -74,6 +77,31 @@
 
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="text-sm text-gray-900">{{ $post->subcategory->category->name }}</div>
+                                    </td>
+
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 whitespace-no-wrap flex items-center">
+                                            <ul class="flex text-sm">
+                                                <li class="mr-1">
+                                                    <i class="fas fa-star text-{{ $post->rating >= 1 ? 'yellow' : 'gray'}}-400"></i>
+                                                </li>
+                                                <li class="mr-1">
+                                                    <i class="fas fa-star text-{{ $post->rating >= 2 ? 'yellow' : 'gray'}}-400"></i>
+                                                </li>
+                                                <li class="mr-1">
+                                                    <i class="fas fa-star text-{{ $post->rating >= 3 ? 'yellow' : 'gray'}}-400"></i>
+                                                </li>
+                                                <li class="mr-1">
+                                                    <i class="fas fa-star text-{{ $post->rating >= 4 ? 'yellow' : 'gray'}}-400"></i>
+                                                </li>
+                                                <li class="mr-1">
+                                                    <i class="fas fa-star text-{{ $post->rating == 5 ? 'yellow' : 'gray'}}-400"></i>
+                                                </li>
+                                            </ul>
+                                        </p>
+                                        <div class="text-sm text-gray-500">
+                                            Valoración del servicio
+                                        </div>
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap">

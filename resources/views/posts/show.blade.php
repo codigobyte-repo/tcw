@@ -9,13 +9,16 @@
                 {{-- Galería FlexSlider --}}
                 <div class="flexslider">
                     <ul class="slides">
-                      @foreach($post->images as $image)
+                      @forelse($post->images as $image)
                           
                         <li data-thumb="{{ Storage::url($image->url) }}">
                             <img src="{{ Storage::url($image->url) }}" />
                         </li>
-
-                      @endforeach
+                      @empty
+                        <li data-thumb="{{asset('img/fondo/fondoPost.webp')}}">
+                            <img src="{{asset('img/fondo/fondoPost.webp')}}" />
+                        </li>
+                      @endforelse
                     </ul>
                 </div>
 
@@ -25,7 +28,7 @@
             {{-- Columna 2 --}}
             <div>
 
-                <h1 class="text-4xl font-bold text-purple-600 mb-4 -mt-10 md:-mt-0">{{$post->name}}</h1>
+                <h1 class="text-4xl font-bold text-purple-600 mb-4 -mt-10 md:-mt-0 capitalize">{{$post->name}}</h1>
 
                 <h2 class="text-xl font-bold text-gray-600 mb-4">{{$post->extract}}</h2>
                 
@@ -119,11 +122,11 @@
                     @foreach($similares as $similar)
                         
                         <a class="flex mb-2 md:mb-0" href="{{ route('posts.show', $similar) }}">
-                            @if($similar->images)
-                                <img class="w-36 h-30 object-cover object-center" src="{{ Storage::url($similar->images->first()->url) }}" alt="Imagen Post">
-                            @else
+                            @forelse($similar->images as $img)
+                                <img class="w-36 h-30 object-cover object-center" src="{{ Storage::url($img->images->first()->url) }}" alt="Imagen Post">
+                            @empty
                                 <img class="w-36 h-30 object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="Imagen Post">
-                            @endif
+                            @endforelse
                             <span class="ml-2 text-gray-600">{{ $similar->name }}</span>
                         </a>
                         

@@ -133,13 +133,43 @@
 
         </div>
 
+        <h1 class="text-2xl font-bold mt-8 mb-2">Imagen de la publicación</h1>
+        
+        <div class="grid grid-cols-2 gap-4">
+            
+            <figure>
+                @if ($photo)
+                    <img class="w-full h-64 object-cover object-center" src="{{ $photo->temporaryUrl() }}">
+                    <p class="text-sm">Previsualización</p>
+                @else
+                    <img class="w-full h-64 object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="Imagen por defecto">
+                    <p class="text-sm">Imagen por defecto</p>
+                @endif
+            </figure>
+            
+            <div>
+                <input type="file" accept="image/*" 
+                wire:model="photo"
+                wire:loading.attr="disabled"
+                >
+                <x-jet-input-error for="photo" />
+                
+                <div wire:loading wire:target="photo">
+                    <p class="text-gray-600 text-xs">Cargando imagen ...</p>
+                </div>
+
+                <p class="mt-2">Seleccione una imagen de portada de su publicación, si lo desea en editar publicación puede agregar más imágenes</p>
+            </div>
+
+        </div>
+
         <div class="flex mt-4">
             <x-button-purple-btn
                 wire:loading.attr="disabled"
                 wire:target="save"
                 wire:click="save"
                 class="ml-auto">
-                Crear servicio
+                Solicitar revisión
             </x-button-purple-btn>
         </div>
     

@@ -9,9 +9,15 @@ use App\Models\Subcategory;
 use Illuminate\Database\Eloquent\Builder;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class CreatePosts extends Component
 {
+    use WithFileUploads;
+ 
+    public $photo;
+    
     public $categories, $subcategories = [], $brands = [];
     public $category_id = "", $subcategory_id = "", $brand_id = "";
     public $name, $slug, $description, $tiempo_entrega, $price;
@@ -25,7 +31,20 @@ class CreatePosts extends Component
         'description' => 'required',
         'brand_id' => 'required',
         'tiempo_entrega' => 'required',
-        'price' => 'required',
+        'price' => 'required'
+    ];
+
+    protected $validationAttributes = [
+        'category_id' => 'categoría',
+        'subcategory_id' => 'subcategoría',
+        'name' => 'nombre',
+        'slug' => 'slug',
+        'description' => 'descripción',
+
+        'brand_id' => 'marca',
+        'tiempo_entrega' => 'tiempo de entrega',
+        'price' => 'precio',
+        'photo' => 'imagen',
     ];
 
     public function updatedCategoryId($value){
@@ -54,6 +73,10 @@ class CreatePosts extends Component
     {
         $this->validate();
 
+        if($this->photo){
+            $this->rules['photo'] = 'image';
+        }
+
         $post = new Post();
         $post->name = $this->name;
         $post->slug = $this->slug;
@@ -71,9 +94,17 @@ class CreatePosts extends Component
         $post->subcategory_id = $this->subcategory_id;
         $post->brand_id = $this->brand_id;
 
+        /* Creamos el post */
         $post->save();
 
-        return redirect('/publisher');
+        if($this->photo){
+            $url = $this->photo->store('public/posts');
+            $post->images()->create([
+                'url' => $url
+            ]);
+        }        
+
+        return redirect()->route('publisher.index');
   
     }
 
