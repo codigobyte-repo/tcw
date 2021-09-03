@@ -265,6 +265,13 @@ return [
             'can'         => 'admin.users.index'
         ],
 
+        [
+            'text'        => 'Pendientes de aprobación',
+            'route'         => 'admin.post-status.index',
+            'icon'        => 'fas fa-users-cog fa-fw',
+            'can'         => 'admin.users.index'
+        ],
+
         /* ['header' => 'ADMINISTRACIÓN'], */
         [
             'text' => 'Categorías',
@@ -273,13 +280,13 @@ return [
             'active' => ['admin/categories*'],
             'can'         => 'admin.categories.index'
         ],
-        [
+        /* [
             'text' => 'Subcategorías',
             'route'  => 'admin.subcategories.index',
             'icon' => 'fab fa-fw fa-buffer',
             'active' => ['admin/subcategories*'],
             'can'         => 'admin.subcategories.index'
-        ],
+        ], */
         [
             'text' => 'Etiquetas',
             'route'  => 'admin.tags.index',
@@ -294,12 +301,12 @@ return [
             'icon' => 'fas fa-fw fa-clipboard',
             'can'         => 'admin.posts.index'
         ],
-        [
+        /* [
             'text' => 'Crear Nueva Publicación',
             'route' => 'admin.posts.create',
             'icon' => 'fas fa-fw fa-file',
             'can'         => 'admin.posts.create'
-        ],
+        ], */
     ],
 
     /*

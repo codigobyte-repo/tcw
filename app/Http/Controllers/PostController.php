@@ -27,7 +27,7 @@ class PostController extends Controller
 
         }        
 
-        $posts = Post::where('status', 2)->with('images')->latest()->paginate(8);
+        $posts = Post::where('status', 3)->with('images')->latest()->paginate(8);
 
         $categories = Category::all();
 
@@ -42,7 +42,7 @@ class PostController extends Controller
         $this->authorize('published', $post);
 
         $similares = Post::where('subcategory_id', $post->subcategory_id)
-                            ->where('status', 2)
+                            ->where('status', 3)
                             ->where('id', '!=', $post->id)
                             ->latest('id')
                             ->take(4)
@@ -53,7 +53,7 @@ class PostController extends Controller
 
     public function category(Category $category)
     {
-        $posts = $category->posts()->where('status', 2)
+        $posts = $category->posts()->where('status', 3)
                         ->latest('id')
                         ->get();
         
@@ -64,14 +64,14 @@ class PostController extends Controller
     public function subcategory(Subcategory $subcategory)
     {
         /* $posts = $subcategory->category->posts->where('status', 2); */
-        $posts =  $subcategory->posts()->where('status', 2)->latest('id')->paginate(6);
+        $posts =  $subcategory->posts()->where('status', 3)->latest('id')->paginate(6);
         return view('posts.subcategory', compact('posts', 'subcategory'));
         
     }
 
     public function tag(Tag $tag)
     {
-        $posts =  $tag->posts()->where('status', 2)->latest('id')->paginate(6);
+        $posts =  $tag->posts()->where('status', 3)->latest('id')->paginate(6);
 
         return view('posts.tag', compact('posts', 'tag'));
 

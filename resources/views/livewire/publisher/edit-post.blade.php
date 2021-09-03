@@ -18,6 +18,12 @@
         
         <h1 class="text-3xl text-center font-semibold mb-8 text-purple-600">Bienvenido, vamos a editar la publicación.</h1>
 
+        {{-- REVISION --}}
+        @livewire('admin.status-post', ['post' => $post], key($post->id))
+
+
+        <h1 class="text-2xl text-center font-semibold mt-6 mb-2">Imágenes de la publicación</h1>
+
         <div class="mb-4" wire:ignore>
             {{-- DROPZONE --}}
             <form action="{{route('publisher.posts.files', $post)}}"
@@ -29,7 +35,7 @@
 
         @if ($post->images->count())
             <section class="bg-white shadow-xl rounded-lg p-6 mb-4">
-                <h1 class="text-2xl text-center font-semibold mb-2">Imagenes de la publicación</h1>
+                
 
                 <ul class="flex flex-wrap">
                 @foreach($post->images as $image)
@@ -209,8 +215,6 @@
 
         </div>
 
-        @livewire('admin.status-post', ['post' => $post], key($post->id))
-
         @push('script')
             <script>
                 Livewire.on('saved', post => {
@@ -258,7 +262,7 @@
                     headers: {
                         'X-CSRF-TOKEN' : "{{ csrf_token() }}"
                     },
-                    dictDefaultMessage:"<b>Agregar imagenes:</b> Arrastre una imagen o haga clic aquí",
+                    dictDefaultMessage:"<b>Agregar imágenes:</b> Arrastre una imagen o haga clic aquí",
                     acceptedFiles: 'image/*',
                     paramName: "file", // The name that will be used to transfer the file
                     maxFilesize: 2, // MB

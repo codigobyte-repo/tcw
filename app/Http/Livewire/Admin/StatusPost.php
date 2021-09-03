@@ -19,8 +19,12 @@ class StatusPost extends Component
 
     public function save()
     {
-        $this->post->status = $this->status;
+        $this->post->status = 2;
         $this->post->save();
+
+        /* Eliminamos la observacion */
+        $this->post->observation()->delete();
+
         $this->emit('saved');
     }
 }

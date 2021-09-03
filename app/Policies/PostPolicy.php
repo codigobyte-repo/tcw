@@ -52,4 +52,13 @@ class PostPolicy
             return true;
         }
     }
+
+    public function revision(User $user, Post $post)
+    {
+        if($post->status == 2){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

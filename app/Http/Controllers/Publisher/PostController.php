@@ -21,4 +21,9 @@ class PostController extends Controller
             'url' => $url
         ]);
     }
+
+    public function observation(Post $post)
+    {
+        return view('publisher.posts.observation', compact('post'));
+    }
 }

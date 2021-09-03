@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\SubcategoryController;
+use App\Http\Controllers\Admin\PostStatusController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,16 @@ Route::resource('subcategories', SubcategoryController::class)->except('show')->
 Route::resource('tags', TagController::class)->except('show')->names('admin.tags');
 
 Route::resource('posts', PostController::class)->except('show')->names('admin.posts');
+
+Route::get('post-status', [PostStatusController::class, 'index'])->name('admin.post-status.index');
+
+Route::get('post-status/{post}', [PostStatusController::class, 'show'])->name('admin.post-status.show');
+
+Route::post('post-status/{post}/approved', [PostStatusController::class, 'approved'])->name('admin.post-status.approved');
+
+Route::get('post-status/{post}/observation', [PostStatusController::class, 'observation'])->name('admin.post-status.observation');
+
+Route::post('post-status/{post}/reject', [PostStatusController::class, 'reject'])->name('admin.post-status.reject');
 
 /* Ruta select anidados */
 Route::get('getSubCategories/{id}', [PostController::class, 'getSubCategories'])->name('getSubCategories');

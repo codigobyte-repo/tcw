@@ -10,8 +10,8 @@ class Post extends Model
     use HasFactory;
 
     const BORRADOR = 1;
-    const PUBLICADO = 2;
-    const PROHIBIDO = 3;
+    const REVISION = 2;
+    const PUBLICADO = 3;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
@@ -19,6 +19,11 @@ class Post extends Model
     public function getRouteKeyName()
     {
         return "slug";
+    }
+
+    /* Relacion uno a uno*/
+    public function observation(){
+        return $this->hasOne(Observation::class);
     }
 
     /* Relacion uno a muchos inversa*/

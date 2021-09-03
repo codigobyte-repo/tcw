@@ -14,7 +14,7 @@ class SearchController extends Controller
         $name = $request->name;
 
         $posts = Post::where('name', 'LIKE', "%" . $name . "%")
-                         ->where('status', 2)
+                         ->where('status', 3)
                          ->paginate(8);
                          
         return view('search', compact('posts'));

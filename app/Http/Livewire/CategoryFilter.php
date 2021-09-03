@@ -62,7 +62,7 @@ class CategoryFilter extends Component
             });
         }
 
-        $posts = $postsQuery->where('status', 2)->paginate(20);
+        $posts = $postsQuery->where('status', 3)->paginate(20);
 
         return view('livewire.category-filter', compact('posts'));
     }
