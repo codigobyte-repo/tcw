@@ -39,9 +39,10 @@ class PostController extends Controller
         /* Si un usuario quiere cambiar el id en la vista show del post podría acceder un post en estado borrador
         para evitar eso creamos el policy published
         INFO: https://youtu.be/Ar2y-J30Bao?list=PLZ2ovOgdI-kX3XFj77zlvSQYhJyJSYQWr&t=556 */
+        /* return $post; */
         $this->authorize('published', $post);
 
-        $similares = Post::where('subcategory_id', $post->subcategory_id)
+        $similares = Post::where('subcategory_id', $post->subcategory_id)->with('images')
                             ->where('status', 3)
                             ->where('id', '!=', $post->id)
                             ->latest('id')

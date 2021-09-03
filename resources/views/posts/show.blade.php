@@ -121,13 +121,15 @@
 
                     @foreach($similares as $similar)
                         
-                        <a class="flex mb-2 md:mb-0" href="{{ route('posts.show', $similar) }}">
-                            @forelse($similar->images as $img)
-                                <img class="w-36 h-30 object-cover object-center" src="{{ Storage::url($img->images->first()->url) }}" alt="Imagen Post">
-                            @empty
+                        <a class="mb-2 md:mb-0" href="{{ route('posts.show', $similar) }}">
+                            
+                            @if (count($similar->images))
+                                <img class="w-36 h-30 object-cover object-center" src="{{ Storage::url($similar->images->first()->url) }}" alt="Imagen Post">
+                            @else
                                 <img class="w-36 h-30 object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="Imagen Post">
-                            @endforelse
-                            <span class="ml-2 text-gray-600">{{ $similar->name }}</span>
+                            @endif
+                            
+                            <span class="ml-2 text-gray-800">{{ $similar->name }}</span>
                         </a>
                         
                     @endforeach

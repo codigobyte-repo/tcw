@@ -104,7 +104,7 @@ class CreatePosts extends Component
             ]);
         }        
 
-        return redirect()->route('publisher.index');
+        return redirect()->route('publisher.posts.edit', $post);
   
     }
 
