@@ -12,7 +12,7 @@ use App\Http\Livewire\Publisher\ShowPosts;
 
 Route::get('/', ShowPosts::class)->middleware('can:publisher.index')->name('publisher.index');
 
-Route::get('posts/create', CreatePosts::class)->middleware('can:publisher.posts.create')->name('publisher.posts.create');
+Route::get('posts/create', CreatePosts::class)->name('publisher.posts.create');
 Route::get('posts/{post}/edit', EditPost::class)->middleware('can:publisher.posts.edit')->name('publisher.posts.edit');
 Route::post('posts/{post}/files', [PostController::class, 'files'])->middleware('can:publisher.posts.files')->name('publisher.posts.files');
 /* Observaciones para el publicador */

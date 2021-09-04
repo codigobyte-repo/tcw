@@ -49,41 +49,46 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             @foreach($posts as $post)
-                
-                <article class="w-full mb-12 h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" 
-                    style="
-                        @isset($post->images)
-                            @forelse($post->images as $img)
-                                background-image:url({{ Storage::url($img->url) }}) 
-                            @empty
+                <a href="{{ route('posts.show', $post) }}">
+                    <article class="w-full mb-20 h-80 bg-cover bg-center @if($loop->first) md:col-span-2 @endif" 
+                        style="
+                            @isset($post->images)
+                                @forelse($post->images as $img)
+                                    background-image:url({{ Storage::url($img->url) }}) 
+                                @empty
+                                    background-image:url({{asset('img/fondo/fondoPost.webp')}}) 
+                                @endforelse
+                            @else 
                                 background-image:url({{asset('img/fondo/fondoPost.webp')}}) 
-                            @endforelse
-                        @else 
-                            background-image:url({{asset('img/fondo/fondoPost.webp')}}) 
-                        @endisset
-                        ">
-                    
-                    <div class="w-full h-full px-8 flex flex-col justify-center">
+                            @endisset
+                            ">
                         
-                        {{-- <div>
-                            @foreach($post->tags as $tag)
-                                
-                                <a href="{{ route('posts.tag', $tag) }}" class="bg-{{$tag->color}}-600 inline-block my-1 px-3 h-6 text-white rounded-full">{{$tag->name}}</a>
+                        <div class="w-full h-full px-8 flex flex-col justify-center">
+                            
+                            <div>
+                                @foreach($post->tags as $tag)
+                                    
+                                    <a href="{{ route('posts.tag', $tag) }}" class="bg-{{$tag->color}}-600 inline-block my-1 px-3 h-6 text-white rounded-full">{{$tag->name}}</a>
 
-                            @endforeach
-                        </div> --}}
+                                @endforeach
+                            </div>
 
-                        <h1 class="text-4xl text-white leading-8 font-bold mt-2">
-                            <a class="capitalize" href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
-                        </h1>
+                            {{-- <h1 class="text-4xl text-white leading-8 font-bold mt-2">
+                                <a class="capitalize" href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
+                            </h1> --}}
 
-                    </div>
-                    
-                    <div class="w-full h-14 pl-4 pt-3 border-b-4 border-purple-600">
-                        <h1 class="text-gray-700 text-lg"><b>Precio: ${{ $post->price }}</b></h1>
-                    </div>
+                        </div>
+                        
+                        <div class="w-full h-14 pl-4 pt-3 pb-20 border-b-4  border-purple-600">
+                            
+                                <h1 class="text-gray-700 text-2xl mt-2"><b>{{ $post->name }}</b></h1>
+                            
+                                <h1 class="text-gray-700 text-lg"><b>Precio: ${{ $post->price }}</b></h1>
+                            
+                        </div>
 
-                </article>
+                    </article>
+                </a>
             @endforeach
 
         </div>

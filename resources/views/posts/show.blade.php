@@ -30,14 +30,14 @@
 
                 <h1 class="text-4xl font-bold text-purple-600 mb-4 -mt-10 md:-mt-0 capitalize">{{$post->name}}</h1>
 
-                <h2 class="text-xl font-bold text-gray-600 mb-4">{{$post->extract}}</h2>
+                {{-- <h2 class="text-xl font-bold text-gray-600 mb-4">{!!$post->description!!}</h2> --}}
                 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-y-4">
                     
                     <p class="flex items-center">
                         <span class="text-xl font-bold mr-2">Sección:</span>
                         <a class="capitalize hover:text-purple-600" href="">
-                            <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-lg font-bold leading-none text-white bg-purple-600 rounded-full">
+                            <span class="inline-flex items-center justify-center px-2 py-1 mr-2 text-sm font-bold leading-none text-white bg-purple-600 rounded-full">
                             {{ $post->brand->name }}
                             </span>
                         </a>
@@ -129,7 +129,7 @@
                                 <img class="w-36 h-30 object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="Imagen Post">
                             @endif
                             
-                            <span class="ml-2 text-gray-800">{{ $similar->name }}</span>
+                            <span class="ml-2 text-blue-800">{{ $similar->name }}</span>
                         </a>
                         
                     @endforeach
