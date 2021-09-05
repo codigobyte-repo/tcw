@@ -3,7 +3,7 @@
     {{-- HEADER --}}
     @if (!auth()->user())
 
-        <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter"
+        <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter" style="background-color: #23153c;"
 
             {{-- style="background-image: url({{asset('img/fondo/bg-principal4.jpg')}});" --}}>
             
