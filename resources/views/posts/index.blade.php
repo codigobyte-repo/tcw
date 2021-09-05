@@ -5,7 +5,7 @@
 
         <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter"
 
-            style="background-image: url({{asset('img/fondo/bg-principal4.jpg')}});">
+            {{-- style="background-image: url({{asset('img/fondo/bg-principal4.jpg')}});" --}}>
             
             <div class="grid grid-cols-1 h-screen justify-center items-center">
                 <div class="text-center">
