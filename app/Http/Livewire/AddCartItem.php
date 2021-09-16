@@ -17,6 +17,7 @@ class AddCartItem extends Component
         $this->options['image'] = Storage::url($this->post->images->first()->url);
         $this->options['price_total'] = round($this->post->price_total, 1);
         $this->options['fee'] = round($this->post->fee, 1);
+        $this->options['vendedor_user_id'] = $this->post->user_id;
     }
     
     public function render()
@@ -31,7 +32,7 @@ class AddCartItem extends Component
                     'qty' => 1, 
                     'price' => $this->post->price,
                     'weight' => 550,
-                    'options' => $this->options
+                    'options' => $this->options,
                 ]);
         /* emitTo renderizar el componente del carrito */
         /* https://www.udemy.com/course/crea-un-ecommerce-con-laravel-livewire-tailwind-y-alpine/learn/lecture/26256754#notes */

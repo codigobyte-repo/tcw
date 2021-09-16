@@ -42,14 +42,17 @@ class PostController extends Controller
         /* return $post; */
         $this->authorize('published', $post);
 
+        /* $subcategories = Subcategory::where(''); */
+
         $similares = Post::where('subcategory_id', $post->subcategory_id)->with('images')
                             ->where('status', 3)
                             ->where('id', '!=', $post->id)
                             ->latest('id')
                             ->take(4)
                             ->get();
+        $rating = 5;
 
-        return view('posts.show', compact('post', 'similares'));
+        return view('posts.show', compact('post', 'similares', 'rating'));
     }
 
     public function category(Category $category)

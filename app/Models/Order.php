@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Mail\RejectPost;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,10 +17,17 @@ class Order extends Model
     const RECIBIDO = 3;
     const FINALIZADO = 4;
     const ANULADO = 5;
+    const CERRADO = 6;
+    const RECHAZADO = 7;
 
     /* Relacion uno a muchos inversa*/
     public function users(){
         return $this->belongsTo(User::class);
-    }    
+    } 
+    
+     //Relacion uno a uno
+     public function rejecte(){
+        return $this->hasOne(RejectPost::class);
+    }
 
 }

@@ -20,6 +20,7 @@ class PaymentOrder extends Component
 
     public function payOrder()
     {
+
         $this->order->status = 2;
         $this->order->save();
 

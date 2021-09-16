@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-            $table->enum('status', [Order::PENDIENTE, Order::PROCESO, Order::RECIBIDO, Order::FINALIZADO, Order::ANULADO])->default(Order::PENDIENTE);
+            $table->enum('status', [Order::PENDIENTE, Order::PROCESO, Order::RECIBIDO, Order::FINALIZADO, Order::ANULADO, Order::CERRADO])->default(Order::PENDIENTE);
 
             $table->float('commission');
             

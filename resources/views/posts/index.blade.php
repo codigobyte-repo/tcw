@@ -1,6 +1,5 @@
 <x-app-layout>
 
-    {{-- HEADER --}}
     @if (!auth()->user())
 
         <div id="bg-animation" class="w-full h-screen bg-no-repeat bg-cover bg-left bg-fixed filter" style="background-color: #23153c;"
@@ -18,7 +17,9 @@
                         <a href="#home_section" class="bg-purple-600 hover:bg-blue-500 text-white font-semibold hover:text-white py-2 hover:border-transparent px-6 rounded-full xl:text-3xl lg:text-2xl md:text-2xl sm:text-1xl">
                             Explorar soluciones
                         </a>
-                        <img class="h-12 w-12 mt-10 mx-auto animate__animated animate__bounce" src="{{ asset('img/icons/scroll.svg') }}" alt="Scroll">
+                        <div class="animate-bounce">
+                            <img class="h-12 w-12 mt-10 mx-auto animate__animated animate__bounce" src="{{ asset('img/icons/scroll.svg') }}" alt="Scroll">
+                        </div>
                     </div>
                     
                 </div>
@@ -54,7 +55,9 @@
                         style="
                             @isset($post->images)
                                 @forelse($post->images as $img)
-                                    background-image:url({{ Storage::url($img->url) }}) 
+                                    @if ($loop->first) 
+                                        background-image:url({{ Storage::url($img->url) }}) 
+                                    @endif
                                 @empty
                                     background-image:url({{asset('img/fondo/fondoPost.webp')}}) 
                                 @endforelse
@@ -72,10 +75,6 @@
 
                                 @endforeach
                             </div>
-
-                            {{-- <h1 class="text-4xl text-white leading-8 font-bold mt-2">
-                                <a class="capitalize" href="{{ route('posts.show', $post) }}">{{ $post->name }}</a>
-                            </h1> --}}
 
                         </div>
                         

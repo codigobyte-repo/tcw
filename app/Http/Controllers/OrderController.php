@@ -25,10 +25,12 @@ class OrderController extends Controller
         $recibido = Order::where('status', 3)->where('user_id', auth()->user()->id)->count();
         $finalizado = Order::where('status', 4)->where('user_id', auth()->user()->id)->count();
         $anulado = Order::where('status', 5)->where('user_id', auth()->user()->id)->count();
+        $cerrado = Order::where('status', 6)->where('user_id', auth()->user()->id)->count();
+        $rechazado = Order::where('status', 7)->where('user_id', auth()->user()->id)->count();
 
 
 
-        return view('orders.index', compact('orders','pendiente','proceso','recibido','finalizado','anulado'));
+        return view('orders.index', compact('orders','pendiente','proceso','recibido','finalizado','anulado', 'cerrado', 'rechazado'));
     }
 
     public function show(Order $order)

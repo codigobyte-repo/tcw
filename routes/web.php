@@ -27,7 +27,7 @@ Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
 
 
 Route::middleware(['auth'])->group(function () {
-    
+    /* VISTAS DE ORDENES QUE VE EL USUARIO COMPRADOR */
     Route::get('orders/create', CreateOrder::class)->name('orders.create');
 
     Route::get('orders', [OrderController::class, 'index'])->name('orders.index');

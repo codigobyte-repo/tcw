@@ -24,15 +24,15 @@ class PostReviews extends Component
         a la vista para verificar que el id del post sea el mismo que el de la orden y asi habilitar los comentarios */
         if(auth()->user()){
             $order = Order::where('user_id', auth()->user()->id)
-                            ->where('status', 2)
+                            ->where('status', 4)
                             ->first();
         }
-
+        
         if(!empty($order)){
             foreach(json_decode($order->content) as $item){
                 $post_orden_id = $item->id;
             }
-
+            
             if($post_orden_id == $post->id){
                 $this->habilita_calificaciones = true;
             }

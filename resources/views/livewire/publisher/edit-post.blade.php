@@ -16,7 +16,7 @@
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         
-        <h1 class="text-3xl text-center font-semibold mb-8 text-purple-600">Bienvenido, vamos a editar la publicación.</h1>
+        <h1 class="text-3xl text-center font-semibold mb-8 text-purple-600">Bienvenido, vamos a verificar la publicación.</h1>
 
         {{-- REVISION --}}
         @livewire('admin.status-post', ['post' => $post], key($post->id))

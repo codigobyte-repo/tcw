@@ -84,6 +84,9 @@
                 </tbody>
             </table>
         </div>
+        @if($order->status == 4)
+            @livewire('orders.aprobar', ['order' => $order, 'post' => $post], key($order->id))
+        @endif
     </div>
 
 </x-app-layout>

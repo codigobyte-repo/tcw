@@ -62,4 +62,9 @@ class Post extends Model
         /* Como primer parametro le pasamos Image... y el segundo es la funcion de Image.php */
         return $this->morphMany(Image::class, 'imageable');
     }
+
+    //Contamos las reviews
+    public function getReviewsCountAttribute(){
+        return $this->reviews()->count();
+    }
 }

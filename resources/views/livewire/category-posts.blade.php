@@ -18,13 +18,12 @@
                             @if($post->images)
 
                               @forelse($post->images as $img)
-                                  <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($img->url) }}" alt="{{$post->name}}">
+                                  @if ($loop->first) 
+                                    <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($img->url) }}" alt="{{$post->name}}">
+                                  @endif
                               @empty
                                   <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="{{$post->name}}">
                               @endforelse
-                              {{-- <figure>
-                                  <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{ Storage::url($post->images->first()->url) }}" alt="{{$post->name}}">
-                              </figure> --}}
                             @else
                               <figure>
                                 <img class="rounded-t-lg h-48 w-full object-cover object-center" src="{{asset('img/fondo/fondoPost.webp')}}" alt="{{$post->name}}">
@@ -43,7 +42,7 @@
                                 </p>
                             </div>
 
-                            <div class="flex space-x-4 pl-6 py-2">
+                            {{-- <div class="flex space-x-4 pl-6 py-2">
                                 <a href="/" aria-label="Likes" class="flex items-start text-white transition-colors duration-200 hover:text-deep-purple-accent-700 group">
                                   <div class="mr-2">
                                     <svg
@@ -82,7 +81,7 @@
                                   </div>
                                   <p class="font-semibold">81</p>
                                 </a>
-                              </div>
+                            </div> --}}
 
                         </article>
                     </li>

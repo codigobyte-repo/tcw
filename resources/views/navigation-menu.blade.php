@@ -1,4 +1,9 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+
+    {{-- **********************************--}}
+    {{-------- NAVEGACION DEL PANEL ---------}}
+    {{-- **********************************--}}
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -17,9 +22,11 @@
                         Sitio principal
                     </x-jet-nav-link>
                     
-                    <x-jet-nav-link href="{{ route('publisher.index') }}" :active="request()->routeIs('publisher.index')">
-                        Mis publicaciones
-                    </x-jet-nav-link>
+                    @can('publisher.index')
+                        <x-jet-nav-link href="{{ route('publisher.index') }}" :active="request()->routeIs('publisher.index')">
+                            Mis publicaciones
+                        </x-jet-nav-link>
+                    @endcan
 
                     <x-jet-nav-link href="{{ route('publisher.posts.create') }}" :active="request()->routeIs('publisher.posts.create')">
                         Crear publicación
@@ -27,20 +34,17 @@
 
                     @can('publisher.orders.index')
                         <x-jet-nav-link href="{{ route('publisher.orders.index') }}" :active="request()->routeIs('publisher.orders.*')">
-                            Ordenes
+                            Mis ventas
                         </x-jet-nav-link>
                     @endcan
                         
                     
-                    @can('publisher.categories.index')
-                        <x-jet-nav-link href="{{ route('publisher.categories.index') }}" :active="request()->routeIs('publisher.categories.*')">
-                            Categorías y Subcategorías
-                        </x-jet-nav-link>
-                    @endcan
-                    
-                    @can('publisher.brands.index')
-                        <x-jet-nav-link href="{{ route('publisher.brands.index') }}" :active="request()->routeIs('publisher.brands.*')">
-                            Marcas
+                    @can('admin.home')
+                        <x-jet-nav-link target="to_blank" href="{{ route('admin.home') }}" :active="request()->routeIs('admin.home.*')">
+                            <div class="flex items-center">
+                                <img class="mr-1" width="20px" src="{{ asset('img/icons/admin.svg') }}" alt="Admin">
+                                <span class="font-bold text-blue-800">ADMINISTRADOR</span>
+                            </div>
                         </x-jet-nav-link>
                     @endcan
 
@@ -72,23 +76,69 @@
                         </x-slot>
 
                         <x-slot name="content">
-                            <!-- Account Management -->
+                            
+                            {{-- TEXTO INDICATIVO --}}
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                Cuenta de administrativa
+                                PERFIL DE CUENTA
                             </div>
+                            <hr>
 
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                Perfil
+                                Mi Perfil
+                            </x-jet-dropdown-link>
+
+                            {{-- TEXTO INDICATIVO --}}
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                MIS VENTAS
+                            </div>
+                            <hr>
+
+                            <x-jet-dropdown-link href="{{ route('publisher.index') }}">
+                                Mis publicaciones
                             </x-jet-dropdown-link>
 
                             <x-jet-dropdown-link href="{{ route('publisher.posts.create') }}">
-                                Publicar
+                                Crear publicación
                             </x-jet-dropdown-link>
 
+                            <x-jet-dropdown-link href="{{ route('publisher.orders.index') }}">
+                                Ventas
+                            </x-jet-dropdown-link>
+
+                            {{-- TEXTO INDICATIVO --}}
+                            <div class="block px-4 py-2 text-xs text-gray-400">
+                                MIS COMPRAS
+                            </div>
+                            <hr>
+                            <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                                Mis compras
+                            </x-jet-dropdown-link>
+                            
+
                             @can('admin.home')
-                                <x-jet-dropdown-link href="{{ route('admin.home') }}">
-                                    Administrador
-                                </x-jet-dropdown-link>    
+
+                                {{-- TEXTO INDICATIVO --}}
+                                <hr>
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    CUENTA ADMINISTRATIVA
+                                </div>
+                                <hr>
+
+                                    <x-jet-dropdown-link target="to_blank" href="{{ route('admin.home') }}">
+                                        <div class="flex items-center">
+                                        <img class="mr-1" width="20px" src="{{ asset('img/icons/admin.svg') }}" alt="Admin">
+                                        <span class="font-bold text-blue-800">ADMINISTRADOR</span>
+                                        </div>
+                                    </x-jet-dropdown-link>
+                                
+                                    <x-jet-dropdown-link href="{{ route('publisher.categories.index') }}">
+                                        <span class="text-blue-800 font-bold">Categorías y subcategorías</span>
+                                    </x-jet-dropdown-link>
+                                
+                                    <x-jet-dropdown-link href="{{ route('publisher.brands.index') }}">
+                                        <span class="text-blue-800 font-bold">Marcas</span>
+                                    </x-jet-dropdown-link>
+
                             @endcan
                             
 
@@ -107,7 +157,11 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                    Cerrar sesión
+                                    
+                                    <div class="flex items-center">
+                                        <img class="mr-1" width="20px" src="{{ asset('img/icons/logout.svg') }}" alt="Admin">
+                                        <span class="font-bold text-blue-800">Cerrar sesión</span>
+                                    </div>
                                 </x-jet-dropdown-link>
                             </form>
                         </x-slot>

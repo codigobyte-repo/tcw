@@ -80,4 +80,20 @@ class User extends Authenticatable
     public function profile(){
         return $this->hasOne(Profile::class);
     }
+
+    //Relacion uno a uno
+    public function information(){
+        return $this->hasOne(Information::class);
+    }
+
+    //Relacion uno a uno
+    public function validate(){
+        return $this->hasOne(Validate::class);
+    }
+
+    //Contamos los posts
+    public function getPostsCountAttribute(){
+        return $this->posts()->count();
+    }
+    
 }

@@ -24,7 +24,15 @@ class CreateOrder extends Component
         $order->commission = $this->commission;
         $order->total = Cart::subtotal();
         $order->totalConComision = (Cart::subtotal(1) * $this->commission) / 100 + Cart::subtotal(1);
-        $order->content = Cart::content();
+        $contenido = $order->content = Cart::content();
+
+        $array = json_decode($contenido, true);
+        
+        foreach($array as $item){
+            $contenido = $item;
+        }
+
+        $order->vendedor_user_id = $contenido['options']['vendedor_user_id'];
 
         $order->save();
         Cart::destroy();

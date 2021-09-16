@@ -1,5 +1,9 @@
 <header class="bg-gradient-to-r from-gray-800 to-purple-800 sticky top-0" style="z-index: 900" x-data="{ open:false }">
 
+    {{-- **********************************--}}
+    {{-- NAVEGACION DE LA PAGINA PRINCIPAL --}}
+    {{-- **********************************--}}    
+
     <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 lg:p-4">
         
         {{-- <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto"> --}}
@@ -55,9 +59,21 @@
                             </div>
                             
                             <div x-show="open" :class="{'block': open, 'hidden': !open}" x-on:click.away="open = !open" class="hidden right-0 absolute mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+                                
+                                {{-- TEXTO INDICATIVO --}}
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    PERFIL DE CUENTA
+                                </div>
+                                <hr>
                                 <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Perfil</a>
 
+
+                                {{-- TEXTO INDICATIVO --}}
                                 @can('publisher.index')
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    MIS VENTAS
+                                </div>
+                                <hr>
                                     <a href="{{ route('publisher.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mis publicaciones</a>
                                 @endcan
 
@@ -65,18 +81,57 @@
                                     <a href="{{ route('publisher.posts.create') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Crear publicación</a>
                                 @endcan
 
-                                <a href="{{ route('orders.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mis pedidos</a>                                
+                                @can('publisher.index')
+                                    <a href="{{ route('publisher.orders.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Ventas</a>
+                                @endcan
+
+
+                                {{-- TEXTO INDICATIVO --}}
+                                <div class="block px-4 py-2 text-xs text-gray-400">
+                                    MIS COMPRAS
+                                </div>
+                                <hr>
+                                <a href="{{ route('orders.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Mis compras</a>
                                 
                                 {{-- PERMISO ADMIN.HOME INFO: https://youtu.be/Ox3WRl6sJrw?list=PLZ2ovOgdI-kX3XFj77zlvSQYhJyJSYQWr&t=134 --}}
                                 @can('admin.home')
-                                    <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Administrador</a>
+
+                                    {{-- TEXTO INDICATIVO --}}
+                                    <hr>
+                                    <div class="block px-4 py-2 text-xs text-gray-400">
+                                        CUENTA ADMINISTRATIVA
+                                    </div>
+                                    <hr>
+                                    
+                                    <a target="to_blank" href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                                        <div class="flex items-center">
+                                            <img class="mr-1" width="20px" src="{{ asset('img/icons/admin.svg') }}" alt="Admin">
+                                            <span class="font-bold text-blue-800">ADMINISTRADOR</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="{{ route('publisher.categories.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                                        <div class="flex items-center">
+                                            <span class="text-blue-800 font-bold">Categorías y subcategorías</span>
+                                        </div>
+                                    </a>
+
+                                    <a href="{{ route('publisher.brands.index') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                                        <div class="flex items-center">
+                                            <span class="text-blue-800 font-bold">Marcas</span>
+                                        </div>
+                                    </a>
+
                                 @endcan
                                 
                                 <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                     <a href="{{ route('logout') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                        Cerrar sesión
+                                        <div class="flex items-center">
+                                            <img class="mr-1" width="20px" src="{{ asset('img/icons/logout.svg') }}" alt="Admin">
+                                            <span class="font-bold text-blue-800">Cerrar sesión</span>
+                                        </div>
                                     </a>
                                 </form>
                             </div>
@@ -236,5 +291,17 @@
 
 
     </nav>
+</header>
+
+<header class="hidden xl:block text-gray-600 body-font bg-purple-500">
+    <div class="container mx-auto flex flex-wrap p-2 flex-col md:flex-row items-center">
+
+      <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center gap-6">
+          @foreach ($categories as $category)  
+            <a class="mr-5 text-lg text-white font-medium hover:text-gray-200 cursor-pointer">{{$category->name}}</a>
+          @endforeach
+      </nav>
+
+    </div>
 </header>
 

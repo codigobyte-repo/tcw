@@ -17,6 +17,7 @@ class StatusOrder extends Component
     {
         $this->order->status = $this->status;
         $this->order->save();
+        $this->emit('saved');
     }
 
     public function render()

@@ -24,7 +24,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('publisher.orders.index') . "?status=4" }}" class="bg-indigo-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('publisher.orders.index') . "?status=4" }}" class="bg-green-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{ $finalizado }}
                 </p>
@@ -34,7 +34,7 @@
                 </p>
             </a>
 
-            <a href="{{ route('publisher.orders.index') . "?status=5" }}" class="bg-green-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
+            <a href="{{ route('publisher.orders.index') . "?status=5" }}" class="bg-red-500 bg-opacity-75 rounded-lg px-12 pt-8 pb-4">
                 <p class="text-center text-2xl">
                     {{ $anulado }}
                 </p>
@@ -65,10 +65,10 @@
                                             <i class="fas fa-truck text-yellow-500 opacity-50"></i>                                        
                                             @break
                                         @case(4)
-                                            <i class="fas fa-check-circle text-pink-500 opacity-50"></i>                                        
+                                            <i class="fas fa-check-circle text-green-500 opacity-50"></i>                                        
                                             @break
                                         @case(5)
-                                            <i class="fas fa-times-circle text-green-500 opacity-50"></i>                                        
+                                            <i class="fas fa-times-circle text-red-500 opacity-50"></i>                                        
                                             @break
                                         
                                         @default
