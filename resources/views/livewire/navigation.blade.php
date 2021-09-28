@@ -298,7 +298,7 @@
 
       <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center gap-6">
           @foreach ($categories as $category)  
-            <a class="mr-5 text-lg text-white font-medium hover:text-gray-200 cursor-pointer">{{$category->name}}</a>
+            <a href="{{ route('posts.category', $category) }}" class="mr-5 text-lg text-white font-medium hover:text-gray-200 cursor-pointer">{{$category->name}}</a>
           @endforeach
       </nav>
 
