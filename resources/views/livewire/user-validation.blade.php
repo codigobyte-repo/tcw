@@ -203,7 +203,7 @@
         
                         </div>
 
-                        <div class="grid grid-cols-1 mb-4 gap-6">    
+                        {{-- <div class="grid grid-cols-1 mb-4 gap-6">    
                             <p class="font-bold">Mercado Pago <b class="text-red-600">(Sólo Argentina)</b></p>
                             <div class="mb-4">
                                 <x-jet-label value="Celular Mercado Pago" />
@@ -216,7 +216,7 @@
                 
                             </div>
         
-                        </div>
+                        </div> --}}
 
                         <fieldset>
                             <div class="grid grid-cols-1 mb-4 gap-6">    

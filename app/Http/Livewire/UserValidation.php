@@ -11,9 +11,10 @@ class UserValidation extends Component
     use WithFileUploads;
 
     public $apellido, $nombre, $celular, $telefono;
-    public $cobroPaypal, $cobroMercadoPago, $nombreTitular, $cbu, $cuenta, $caja;    
+    public $cobroPaypal, $nombreTitular, $cbu, $cuenta, $caja;    
     public $fotoFrente, $fotoDorso;
     public $aceptoTerminos = true, $notificacionesCorreo = true, $notificacionesWhatsapp;
+    /* public $cobroMercadoPago; */
 
     protected $rules = [
         'nombre' => 'required',
@@ -58,7 +59,7 @@ class UserValidation extends Component
         $validateUsuario->celular = $this->celular;
         $validateUsuario->telefono = $this->telefono;
         $validateUsuario->cobroPaypal = $this->cobroPaypal;
-        $validateUsuario->cobroMercadoPago = $this->cobroMercadoPago;
+        /* $validateUsuario->cobroMercadoPago = $this->cobroMercadoPago; */
         $validateUsuario->nombreTitular = $this->nombreTitular;
         $validateUsuario->cbu = $this->cbu;
         $validateUsuario->cuenta = $this->cuenta;

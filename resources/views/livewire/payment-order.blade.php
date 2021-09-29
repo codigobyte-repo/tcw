@@ -120,20 +120,20 @@
                     </article>
                 </div>
     
-                <div class="bg-white px-4 py-4 flex justify-between items-center">
+                {{-- BOTON PAGAR MERCADO LIBRE --}}
+                {{-- <div class="bg-white px-4 py-4 flex justify-between items-center">
                     <img class="h-10" src="{{ asset('img/pasarelas/MP.png') }}" alt="MercadoPago">
 
                     <div>
-                        {{-- BOTON PAGAR MERCADO LIBRE --}}
                         <a class="cho-container">
                         </a>
                     </div>
-                </div>
+                </div> --}}
 
                 <hr class="py-2 px-4">
 
-                <div class="bg-white px-4 py-4 flex justify-between items-center">
-                    <img class="h-10" src="{{ asset('img/pasarelas/PayPal.jpg') }}" alt="PayPal">
+                <div class="bg-white px-4 py-2 flex justify-between items-center">
+                    <img class="h-10 -mt-6" src="{{ asset('img/pasarelas/PayPal.jpg') }}" alt="PayPal">
 
                     <div>
                         {{-- BOTON PAGAR MERCADO LIBRE --}}
