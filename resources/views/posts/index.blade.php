@@ -78,11 +78,13 @@
 
                         </div>
                         
-                        <div class="w-full h-14 pl-4 pt-3 pb-20 border-b-4  border-purple-600">
+                        <div>
                             
-                                <h1 class="text-gray-700 text-2xl mt-2"><b>{{ $post->name }}</b></h1>
+                                <h1 class="text-gray-700 text-2xl mt-2">{{ ucfirst(Str::limit($post->name, 30)) }}</h1>
                             
                                 <h1 class="text-gray-700 text-lg"><b>Precio: ${{ $post->price }}</b></h1>
+
+                                <hr class="border-b-4  border-purple-600">
                             
                         </div>
 
