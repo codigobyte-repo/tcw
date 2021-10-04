@@ -41,8 +41,8 @@
             {{-- Columna 2 --}}
             <div>
                 
-                <div class="flex items-center justify-between my-10">
-                    <p class="text-3xl font-bold">{{ $post->name }}</p>
+                <div class="flex items-center justify-between gap-x-8 my-10">
+                    <p class="text-2xl">{{ $post->name }}</p>
                     <p class="text-3xl font-bold">USD {{ $post->price }} </p>
                 </div>
 
