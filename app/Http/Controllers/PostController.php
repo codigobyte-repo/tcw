@@ -27,7 +27,7 @@ class PostController extends Controller
 
         }        
 
-        $posts = Post::where('status', 3)->with('images')->latest()->paginate(8);
+        $posts = Post::where('status', 3)->with('images')->latest()->paginate(9);
 
         $categories = Category::all();
 
