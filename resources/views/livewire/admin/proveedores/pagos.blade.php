@@ -31,7 +31,13 @@
                                 <td>{{ $pago->id }}</td>
                                 {{-- App\Models\Order::searchUser creamos esta funcion para obtener los usuarios con el id --}}
                                 <td>{{ App\Models\Order::searchUser($pago->vendedor_user_id)->name }}</td>
-                                <td>{{ App\Models\Order::searchUser($pago->vendedor_user_id)->validate->cobroPaypal }}</td>
+                                
+                                <td>
+                                    @if( App\Models\Order::searchUser($pago->vendedor_user_id)->validate->cobroPaypal)
+                                    {{ App\Models\Order::searchUser($pago->vendedor_user_id)->validate->cobroPaypal }}
+                                    @endif
+                                </td>
+
                                 <td>{{ App\Models\Order::searchUser($pago->vendedor_user_id)->validate->celular }}</td>
                                 <td>{{ $pago->commission }} %</td>
                                 <td>USD {{ $pago->totalConComision }}</td>
