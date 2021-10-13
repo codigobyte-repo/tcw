@@ -13,7 +13,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Vendedor</th>                           
-                            <th>Dirección de pago</th>                          
+                            <th>Dirección de pago PAYPAL</th>                          
                             <th>Teléfono de contacto</th>                          
                             <th>Comisión</th>
                             <th>Total con comisión</th>
@@ -33,11 +33,9 @@
                                 <td>{{ App\Models\Order::searchUser($pago->vendedor_user_id)->name }}</td>
                                 
                                 <td>
-                                    @if( App\Models\Order::searchUser($pago->vendedor_user_id)->validate->cobroPaypal)
                                     {{ App\Models\Order::searchUser($pago->vendedor_user_id)->validate->cobroPaypal }}
-                                    @endif
                                 </td>
-
+                                
                                 <td>{{ App\Models\Order::searchUser($pago->vendedor_user_id)->validate->celular }}</td>
                                 <td>{{ $pago->commission }} %</td>
                                 <td>USD {{ $pago->totalConComision }}</td>
