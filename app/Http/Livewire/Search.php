@@ -26,7 +26,7 @@ class Search extends Component
     {
         if($this->search){
             $posts = Post::where('name', 'LIKE', "%" . $this->search . "%")
-                         ->where('status', 2)
+                         ->where('status', 3)
                          ->take(8)
                          ->get();
         }else{
