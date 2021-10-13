@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\SubcategoryController;
 use App\Http\Controllers\Admin\PostStatusController;
-
+use App\Http\Controllers\PagosProveedoresController;
 use Illuminate\Support\Facades\Route;
 
 /* RUTEO ADMIN */
@@ -36,6 +36,9 @@ Route::post('post-status/{post}/approved', [PostStatusController::class, 'approv
 Route::get('post-status/{post}/observation', [PostStatusController::class, 'observation'])->name('admin.post-status.observation');
 
 Route::post('post-status/{post}/reject', [PostStatusController::class, 'reject'])->name('admin.post-status.reject');
+
+Route::get('proveedores', [PagosProveedoresController::class, 'index'])->name('admin.proveedores.index');
+Route::get('ganancias', [PagosProveedoresController::class, 'show'])->name('admin.ganancias.show');
 
 /* Ruta select anidados */
 Route::get('getSubCategories/{id}', [PostController::class, 'getSubCategories'])->name('getSubCategories');

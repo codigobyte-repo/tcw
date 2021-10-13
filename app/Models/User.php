@@ -88,7 +88,7 @@ class User extends Authenticatable
 
     //Relacion uno a uno
     public function validate(){
-        return $this->hasOne(Validate::class);
+        return $this->hasOne(UserValidation::class);
     }
 
     //Contamos los posts

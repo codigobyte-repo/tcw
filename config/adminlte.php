@@ -294,6 +294,22 @@ return [
             'active' => ['admin/tags*'],
             'can'         => 'admin.tags.index'
         ],
+        
+        ['header' => 'SERVICIOS DE PAGOS'],
+        [
+            'text'  => 'Pago a proveedores',
+            'route' => 'admin.proveedores.index',
+            'icon' => 'fas fa-money-check-alt',
+            'can'         => 'admin.posts.index'
+        ],
+
+        [
+            'text'  => 'Mis ganancias',
+            'route' => 'admin.ganancias.show',
+            'icon' => 'fas fa-dollar-sign',
+            'can'         => 'admin.posts.index'
+        ],
+
         ['header' => 'OPCIONES DE PUBLICACIÓN'],
         [
             'text'  => 'Lista de Publicaciones',

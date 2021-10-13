@@ -152,10 +152,10 @@
     
 
         {{-- SDK MercadoPago.js V2 --}}
-        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        {{-- <script src="https://sdk.mercadopago.com/js/v2"></script>
 
         <script>
-            // Agrega credenciales de SDK
+            
             const mp = new MercadoPago("{{config('services.mercadopago.key')}}", {
                     locale: 'es-AR'
             });
@@ -166,11 +166,11 @@
                     id: '{{ $preference->id }}'
                 },
                 render: {
-                        container: '.cho-container', // Indica el nombre de la clase donde se mostrará el botón de pago
-                        label: 'Pagar', // Cambia el texto del botón de pago (opcional)
+                        container: '.cho-container',
+                        label: 'Pagar', 
                 },
             });
-        </script>
+        </script> --}}
 
         {{-- SDK PAypal --}}
         <script src="https://www.paypal.com/sdk/js?client-id={{ config('services.paypal.client_id') }}"></script>

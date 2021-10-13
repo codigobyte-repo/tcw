@@ -30,4 +30,12 @@ class Order extends Model
         return $this->hasOne(RejectPost::class);
     }
 
+    //Cree esta funcion para buscar al usuario por el id y asi mostrarlo en la vista \views\livewire\admin\proveedores\pagos.blade.php
+    public static function searchUser($userId)
+    {
+        $usuario = User::find($userId);
+        return ($usuario);
+
+    }
+
 }
