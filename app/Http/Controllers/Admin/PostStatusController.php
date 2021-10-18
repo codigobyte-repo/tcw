@@ -33,7 +33,7 @@ class PostStatusController extends Controller
         $mail = new ApprovedPost($post);
         /* send envía directamente el correo, queue lo pone en la cola de envío */
         /* Mail::to($post->user->email)->send($mail); */
-        Mail::to($post->user->email)->queue($mail);
+        Mail::to($post->user->email)->send($mail);
 
         return redirect()->route('admin.post-status.index')->with('info', 'Publicación aprobada correctamente');
     }
