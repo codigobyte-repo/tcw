@@ -82,7 +82,7 @@
                             
                                 <h1 class="text-gray-700 text-2xl mt-2">{{ ucfirst(Str::limit($post->name, 30)) }}</h1>
                             
-                                <h1 class="text-gray-700 text-lg"><b>Precio: US${{ $post->price }}</b></h1>
+                                <h1 class="text-gray-700 text-lg"><b>Precio: US$ {{ $post->price }}</b></h1>
 
                                 <hr class="border-b-4  border-purple-600">
                             
