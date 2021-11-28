@@ -2,8 +2,11 @@
 
 namespace App\Http\Livewire;
 
+use App\Mail\NewOrder;
 use App\Models\Order;
+use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Mail;
 use Livewire\Component;
 
 class CreateOrder extends Component
@@ -34,7 +37,15 @@ class CreateOrder extends Component
 
         $order->vendedor_user_id = $contenido['options']['vendedor_user_id'];
 
+        
         $order->save();
+        
+        //Envía el mail
+        $usuario = User::find($order->vendedor_user_id);    
+        /* dd($usuario->name); */
+        $mail = new NewOrder($order, $usuario);
+        Mail::to($usuario->email)->queue($mail);
+        
         Cart::destroy();
 
         return redirect()->route('orders.payment', $order);
