@@ -76,7 +76,7 @@
           </div>
           <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
             <p class="text-sm text-gray-100">
-              © 2021 Todo Contenido Web. Derechos reservados | Developed by <a href="http://codigobyte.com.ar" target="_blank" rel="noopener noreferrer"><b> Código Byte</b> </a>
+              © {{ date('Y') }} Todo Contenido Web. Derechos reservados | Developed by <a href="http://codigobyte.com.ar" target="_blank" rel="noopener noreferrer"><b> Código Byte</b> </a>
             </p>
             <div class="flex items-center mt-4 space-x-4 sm:mt-0">
               <a href="/" class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400">
