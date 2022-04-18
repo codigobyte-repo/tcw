@@ -21,7 +21,7 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script defer src="{{ mix('js/app.js') }}"></script>
         
         <!-- AOS Animate -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
@@ -52,6 +52,24 @@
         {{-- <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.21/dist/vanta.waves.min.js"></script> --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script> --}}
         {{-- <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script> --}}
+
+        {{-- PUSHER --}}
+        <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+        <script>
+
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+        
+            var pusher = new Pusher('80b329a9e40bdf97a6bb', {
+              cluster: 'sa1'
+            });
+        
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function(data) {
+              alert(JSON.stringify(data));
+            });
+          </script>
 
     </head>
 

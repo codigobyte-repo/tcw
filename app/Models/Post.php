@@ -12,6 +12,7 @@ class Post extends Model
     const BORRADOR = 1;
     const REVISION = 2;
     const PUBLICADO = 3;
+    const PROHIBIDO = 4;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
 

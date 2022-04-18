@@ -1,5 +1,7 @@
 <?php
 
+use App\Events\SendMessage;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
@@ -10,6 +12,10 @@ use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
 use App\Http\Livewire\ShoppingCart;
 use App\Models\Order;
+
+use App\Http\Livewire\Chat\ChatList;
+use App\Http\Livewire\Chat\ChatWith;
+use App\Http\Livewire\Chat\Contacts;
 
 Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
@@ -24,7 +30,6 @@ Route::get('category/{category}', [PostController::class, 'category'])->name('po
 /* Route::get('subcategory/{subcategory}', [PostController::class, 'subcategory'])->name('posts.subcategory'); */
 
 Route::get('shopping-cart', ShoppingCart::class)->name('shopping-cart');
-
 
 Route::middleware(['auth'])->group(function () {
     /* VISTAS DE ORDENES QUE VE EL USUARIO COMPRADOR */
@@ -41,6 +46,10 @@ Route::middleware(['auth'])->group(function () {
     /* Excluimos esta ruta del csrf para que funcione con ML */
     /* https://www.udemy.com/course/crea-un-ecommerce-con-laravel-livewire-tailwind-y-alpine/learn/lecture/26684084#notes */
     Route::post('webhooks', WebhooksController::class);
+
+    /* Route::get('chat/{uuid}', [ChatController::class, 'show'])->name('chat.show'); */
+    Route::get('contactos', Contacts::class)->name('contacts');
+    Route::get('chat/{uuid}', ChatWith::class)->name('chat_with');
 
     /* LOG */
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

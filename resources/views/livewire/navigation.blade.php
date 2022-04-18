@@ -45,6 +45,14 @@
             {{-- CART --}}
             @livewire('dropdown-cart')
             {{-- FIN CART --}}
+
+            {{-- CHAT --}}
+            @can('publisher.index')
+                
+                @livewire('notifications')
+                
+            @endcan
+            {{-- FIN CHAT --}}
         
             <div class="hidden md:block">
                 @auth
@@ -53,8 +61,9 @@
                         <!-- Profile dropdown -->
                         <div class="ml-3 relative" x-data="{ open:false }">
                             <div>
-                                <button x-on:click="open = !open" type="button" class="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
+                                <button x-on:click="open = !open" type="button" class="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
                                     <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->profile_photo_url }}" alt="Imagen de perfil">
+                                    <p class="ml-2 mt-1.5 text-white">Hola, {{ Auth::user()->name }}</p>
                                 </button>
                             </div>
                             

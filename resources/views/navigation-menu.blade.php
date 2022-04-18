@@ -37,6 +37,15 @@
                             Mis ventas
                         </x-jet-nav-link>
                     @endcan
+
+                    @can('publisher.orders.index')
+                        <x-jet-nav-link href="{{ route('contacts') }}" :active="request()->routeIs('contacts')">
+                            <span class="mr-2 font-bold">Chat</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                            </svg>
+                        </x-jet-nav-link>
+                    @endcan
                         
                     
                     @can('admin.home')
@@ -60,7 +69,10 @@
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                 <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                    <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                    <div class="flex items-center">
+                                        <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+                                        <p class="ml-2 text-gray-600">{{ Auth::user()->name }}</p>
+                                    </div>
                                 </button>
                             @else
                                 <span class="inline-flex rounded-md">

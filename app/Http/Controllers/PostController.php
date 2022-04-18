@@ -52,7 +52,9 @@ class PostController extends Controller
                             ->get();
         $rating = 5;
 
-        return view('posts.show', compact('post', 'similares', 'rating'));
+        $uuid = $post->user->uuid;
+
+        return view('posts.show', compact('post', 'similares', 'rating', 'uuid'));
     }
 
     public function category(Category $category)

@@ -29,6 +29,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'uuid',
     ];
 
     /**
@@ -95,5 +96,22 @@ class User extends Authenticatable
     public function getPostsCountAttribute(){
         return $this->posts()->count();
     }
+
+    //Sistema de chat
+    public function friends()
+    {
+        return $this->HasMany(frinds::class);
+    }
+
+    public function chats()
+    {
+        return $this->hasMany(Chat::class);
+    }
+
+    public function last_message($user)
+    {
+        return "wow this is amazing";
+    }
+    // Fin de sistema de chat
     
 }

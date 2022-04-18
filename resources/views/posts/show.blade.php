@@ -104,6 +104,24 @@
                     @livewire('add-cart-item', ['post' => $post])
                 </div>
 
+                @if(auth()->user()->id != $post->user->id)
+                <div class="mt-6 mb-2">
+                    @if(auth()->user())
+                        <a href="{{ route('chat_with', $uuid) }}" type="button" class="w-full border border-green-600 text-sm px-1 py-1 rounded text-center text-green-800 font-bold hover:bg-green-800 hover:text-white transition duration-200 each-in-out">
+                            Contacta al anunciante
+                        </a>
+                        <p class="text-center text-xs text-gray-500 font-extrabold">No compartas datos personales. Evita una suspensión</p>
+                    @else
+
+                        <button disabled:opacity-50 class="cursor-not-allowed w-full border border-gray-600 text-sm px-1 py-1 rounded text-center text-white font-bold bg-gray-600">
+                            Contacta al anunciante
+                        </button>
+                        <p class="text-center text-xs text-gray-500 font-extrabold">Debes estar registrado parar contactar al anunciante. <a class="text-blue-800 font-bold" href="{{ route('register') }}">REGISTRARTE AHORA</a></p>
+
+                    @endif
+                </div>
+                @endif
+
             </div>
 
         </div>

@@ -12,6 +12,10 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        
+        {{-- Estilos personalizados para el chat --}}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
         {{-- Fontawesone --}}
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
 
@@ -24,7 +28,7 @@
         @livewireStyles
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
+        <script defer src="{{ mix('js/app.js') }}"></script>
         
         <!-- AOS Animate -->
         {{-- <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> --}}
@@ -64,6 +68,26 @@
 
         {{-- DROPZONE --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+        {{-- PUSHER --}}
+        <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+
+        <script>
+
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+        
+            var pusher = new Pusher('80b329a9e40bdf97a6bb', {
+              cluster: 'sa1'
+            });
+        
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function(data) {
+              alert(JSON.stringify(data));
+            });
+          </script>
+
+        @yield('styles')
 
     </head>
 
