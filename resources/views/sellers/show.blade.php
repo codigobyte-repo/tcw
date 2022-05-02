@@ -110,7 +110,7 @@
                         </p>
                         
                     </div>
-                    <input type="text" disabled value="http://localhost:8000/seller/{{$post->id}}/{{auth()->user()->uuid}}" id="myInput"
+                    <input type="text" disabled value="{{url('/seller/'.$post->id.'/'.auth()->user()->uuid)}}" id="myInput"
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     <button onclick="myFunction()">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block my-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -162,7 +162,7 @@
                 </p>
                 
             </div>
-            <input type="text" disabled value="http://localhost:8000/{{$post->id}}/{{auth()->user()->uuid}}" id="myInput"
+            <input type="text" disabled value="{{url('/seller/'.$post->id.'/'.auth()->user()->uuid)}}" id="myInput"
             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
             <button onclick="myFunction()">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block my-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
