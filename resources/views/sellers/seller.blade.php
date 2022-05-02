@@ -105,7 +105,7 @@
                 </div>
 
                 
-                    <div class="mt-6 mb-2">
+                    {{-- <div class="mt-6 mb-2">
                         @if(auth()->user())
                             @if(auth()->user()->id != $post->user->id)
                                 <a href="{{ route('chat_with', $uuid) }}" type="button" class="w-full border border-green-600 text-sm px-1 py-1 rounded text-center text-green-800 font-bold hover:bg-green-800 hover:text-white transition duration-200 each-in-out">
@@ -121,7 +121,7 @@
                             <p class="text-center text-xs text-gray-500 font-extrabold">Debes estar registrado parar contactar al anunciante. <a class="text-blue-800 font-bold" href="{{ route('register') }}">REGISTRARTE AHORA</a></p>
 
                         @endif
-                    </div>
+                    </div> --}}
                 
 
             </div>
@@ -156,53 +156,7 @@
         {{-- USUARIO --}}
         @livewire('publisher.post-profile-user', ['user' => $post->user, 'post' => $post], key($post->user->id))
 
-        @if($similares->count())
-
-            <div class="mt-10 md:mt-20">
-                <h2 class="font-bold text-lg">Servicios similares</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    @foreach($similares as $similar)
-
-                        <a href="{{ route('posts.show', $similar) }}">
-                            <div class="max-w-sm rounded overflow-hidden shadow-lg">
-
-                                @if (count($similar->images))
-                                    <img class="h-48 w-full object-cover object-center" src="{{ Storage::url($similar->images->first()->url) }}" alt="Imagen Post">
-                                @else
-                                    <img class="w-full" src="{{asset('img/fondo/fondoPost.webp')}}" alt="Imagen Post">
-                                @endif
-                                
-                                <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">{{ $similar->name }}</div>
-                                    <p class="text-gray-700 text-base">
-                                        {{$similar->subcategory->name}}
-                                    </p>
-                                </div>
-
-                                <div class="flex p-4 justify-between">
-                                    <div class="flex items-center space-x-2">
-                                      <img class="w-10 rounded-full" src="{{$similar->user->profile_photo_url}}" alt="Foto Usuario" />
-                                      <h2 class="text-gray-800 font-bold cursor-pointer">{{$similar->user->name}}</h2>
-                                    </div>
-                                    <div class="flex space-x-2">
-                                      <div class="flex space-x-1 items-center font-bold">
-                                        <span>
-                                          USD
-                                        </span>
-                                        <span>{{$similar->price}}</span>
-                                      </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </a>
-                        
-                    @endforeach
-                </div>
-            </div>
-
-        @endif
+        
 
     </div>
 

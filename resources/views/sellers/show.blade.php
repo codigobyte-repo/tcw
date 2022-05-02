@@ -100,28 +100,26 @@
                     </div>
                 </div>
 
-                <div>
-                    @livewire('add-cart-item', ['post' => $post])
-                </div>
-
-                
-                    <div class="mt-6 mb-2">
-                        @if(auth()->user())
-                            @if(auth()->user()->id != $post->user->id)
-                                <a href="{{ route('chat_with', $uuid) }}" type="button" class="w-full border border-green-600 text-sm px-1 py-1 rounded text-center text-green-800 font-bold hover:bg-green-800 hover:text-white transition duration-200 each-in-out">
-                                    Contacta al anunciante
-                                </a>
-                                <p class="text-center text-xs text-gray-500 font-extrabold">No compartas datos personales. Evita una suspensión</p>
-                            @endif
-                        @else
-
-                            <button disabled:opacity-50 class="cursor-not-allowed w-full border border-gray-600 text-sm px-1 py-1 rounded text-center text-white font-bold bg-gray-600">
-                                Contacta al anunciante
-                            </button>
-                            <p class="text-center text-xs text-gray-500 font-extrabold">Debes estar registrado parar contactar al anunciante. <a class="text-blue-800 font-bold" href="{{ route('register') }}">REGISTRARTE AHORA</a></p>
-
-                        @endif
+                <div class="rounded overflow-hidden shadow-lg my-6 px-4">
+                    <div class="flex items-center justify-between gap-x-8 my-10">
+                        <p class="text-2xl text-purple-600 text-center mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Vendé este servicio 
+                        </p>
+                        
                     </div>
+                    <input type="text" disabled value="http://localhost:8000/seller/{{$post->id}}/{{auth()->user()->uuid}}" id="myInput"
+                    class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    <button onclick="myFunction()">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block my-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                        </svg>
+                        <span class="underline hover:text-blue-600" id="copiado"> Copia aquí la URL y compártela </span>
+                    </button>
+                </div>
+                
                 
 
             </div>
@@ -136,6 +134,7 @@
               </p> 
             </div>        
         </div>
+        
 
         <div class="rounded overflow-hidden shadow-lg my-6">
             <div class="px-6 py-4">
@@ -152,57 +151,31 @@
         </div>
         
         @livewire('post-reviews', ['post' => $post], key($post->id))
+
+        <div class="rounded overflow-hidden shadow-lg my-6 px-4">
+            <div class="flex items-center justify-between gap-x-8 my-10">
+                <p class="text-2xl text-purple-600 text-center mx-auto">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Vendé este servicio 
+                </p>
+                
+            </div>
+            <input type="text" disabled value="http://localhost:8000/{{$post->id}}/{{auth()->user()->uuid}}" id="myInput"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+            <button onclick="myFunction()">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 inline-block my-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                </svg>
+                <span class="underline hover:text-blue-600" id="copiadoDos"> Copia aquí la URL y compártela </span>
+            </button>
+        </div>
         
         {{-- USUARIO --}}
         @livewire('publisher.post-profile-user', ['user' => $post->user, 'post' => $post], key($post->user->id))
-
-        @if($similares->count())
-
-            <div class="mt-10 md:mt-20">
-                <h2 class="font-bold text-lg">Servicios similares</h2>
-
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                    @foreach($similares as $similar)
-
-                        <a href="{{ route('posts.show', $similar) }}">
-                            <div class="max-w-sm rounded overflow-hidden shadow-lg">
-
-                                @if (count($similar->images))
-                                    <img class="h-48 w-full object-cover object-center" src="{{ Storage::url($similar->images->first()->url) }}" alt="Imagen Post">
-                                @else
-                                    <img class="w-full" src="{{asset('img/fondo/fondoPost.webp')}}" alt="Imagen Post">
-                                @endif
-                                
-                                <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">{{ $similar->name }}</div>
-                                    <p class="text-gray-700 text-base">
-                                        {{$similar->subcategory->name}}
-                                    </p>
-                                </div>
-
-                                <div class="flex p-4 justify-between">
-                                    <div class="flex items-center space-x-2">
-                                      <img class="w-10 rounded-full" src="{{$similar->user->profile_photo_url}}" alt="Foto Usuario" />
-                                      <h2 class="text-gray-800 font-bold cursor-pointer">{{$similar->user->name}}</h2>
-                                    </div>
-                                    <div class="flex space-x-2">
-                                      <div class="flex space-x-1 items-center font-bold">
-                                        <span>
-                                          USD
-                                        </span>
-                                        <span>{{$similar->price}}</span>
-                                      </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </a>
-                        
-                    @endforeach
-                </div>
-            </div>
-
-        @endif
+        
+        
 
     </div>
 
@@ -215,6 +188,25 @@
                 
                 });
             });
+        </script>
+
+        <script>
+            /*Función para copiar la url para el vendedor*/
+            function myFunction() {
+                /* Get the text field */
+                var copyText = document.getElementById("myInput");
+
+                /* Select the text field */
+                copyText.select();
+                copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                /* Copy the text inside the text field */
+                navigator.clipboard.writeText(copyText.value);
+
+                document.getElementById("copiado").textContent="Copiado!";
+                document.getElementById("copiadoDos").textContent="Copiado!";
+
+            }
         </script>
     @endpush
 

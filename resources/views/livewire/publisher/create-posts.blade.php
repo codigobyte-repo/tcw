@@ -135,6 +135,53 @@
 
             </div>
 
+            {{-- Marca --}}
+            {{-- x-cloak se utiliza para que no de PARPADEO el modal cuando se carga la pantalla --}}
+            <style>
+                [x-cloak] {
+                    display: none;
+                }
+            </style>
+
+            <div class="box-content h-auto w-auto p-4 border-4">
+                <div class="mb-4">
+                    <h1 class="text-2xl font-bold mt-8 mb-2 text-center">Permitir vendedores</h1>
+
+
+                    <div class="flex items-center justify-center" x-data="{ open: false }" x-cloak>
+                        <div class="px-4 py-2 bg-gray-400 hover:bg-gray-700 text-white text-xl font-serif rounded-full border-none focus:outline-none cursor-pointer"
+                          @click="open = true">¡Más información!</div>
+                        <div class="fixed z-1 w-full h-full top-0 left-0 flex items-center justify-center" x-cloak x-show="open">
+                          <div class="fixed w-full h-full bg-gray-500 opacity-50"></div>
+                          <div class="relative z-2 w-3/12 bg-white p-8 mx-auto rounded-xl flex flex-col items-center" @click.away="open = false">
+                            <p class="text-xl font-serif pb-4">
+                                Los vendedores son personas interesadas en vender para usted el servicio que va a publicar. <br>
+                                Al aceptar la opción, los vendedores acceden a ver su producto y venderlos por sus propios medios.
+                                <br>
+                                Usted debe saber en primer lugar que al aceptar: <strong> el 10% del valor de su servicio será para el vendedor </strong>.
+                                <strong>Le recordamos que nuestro servicio también tiene un costo del 8%.</strong>
+                                <br>
+                                ¡Ofrecer esta opción hará que incremente sus ventas! 
+                            </p>
+                            <button class="px-4 py-2 bg-red-400 hover:bg-red-700 text-white text-xl font-serif rounded-full border-none focus:outline-none"
+                              @click="open = false">¡Cerrar info!</button>
+                          </div>
+                        </div>
+                    </div>
+
+
+                    <p class="text-xs text-gray-500 pl-2 mt-4">Si selecciona SI está aceptando que otras personas vendan su producto y ganen una comisión por cada venta</p>
+                    <select class="w-full rounded-lg border-1 border-gray-300" wire:model="seller">
+                        <option value="">Seleccione una opción</option>
+                        <option value="0">NO</option>
+                        <option value="1">SI</option>
+                    </select>
+
+                    <x-jet-input-error for="seller" />
+
+                </div>
+            </div>
+
             <h1 class="text-2xl font-bold mt-8 mb-2">Imagen de la publicación</h1>
             
             <div class="grid grid-cols-2 gap-4">

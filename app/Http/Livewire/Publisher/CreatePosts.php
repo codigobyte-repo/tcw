@@ -18,7 +18,7 @@ class CreatePosts extends Component
  
     public $photo;
     
-    public $categories, $subcategories = [], $brands = [];
+    public $categories, $subcategories = [], $brands = [], $seller;
     public $category_id = "", $subcategory_id = "", $brand_id = "";
     public $name, $slug, $description, $tiempo_entrega, $price;
     public $commission = 8;
@@ -31,7 +31,8 @@ class CreatePosts extends Component
         'description' => 'required',
         'brand_id' => 'required',
         'tiempo_entrega' => 'required',
-        'price' => 'required'
+        'price' => 'required',
+        'seller' => 'required'
     ];
 
     protected $validationAttributes = [
@@ -93,6 +94,7 @@ class CreatePosts extends Component
         $post->user_id = auth()->user()->id;
         $post->subcategory_id = $this->subcategory_id;
         $post->brand_id = $this->brand_id;
+        $post->seller = $this->seller;
 
         /* Creamos el post */
         $post->save();

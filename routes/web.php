@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SellerController;
 use App\Http\Controllers\WebhooksController;
 use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
@@ -26,6 +27,9 @@ Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::get('search', SearchController::class)->name('search');
 
 Route::get('category/{category}', [PostController::class, 'category'])->name('posts.category');
+
+Route::get('seller', [SellerController::class, 'index'])->name('sellers.index');
+
 
 /* Route::get('subcategory/{subcategory}', [PostController::class, 'subcategory'])->name('posts.subcategory'); */
 
@@ -47,9 +51,11 @@ Route::middleware(['auth'])->group(function () {
     /* https://www.udemy.com/course/crea-un-ecommerce-con-laravel-livewire-tailwind-y-alpine/learn/lecture/26684084#notes */
     Route::post('webhooks', WebhooksController::class);
 
-    /* Route::get('chat/{uuid}', [ChatController::class, 'show'])->name('chat.show'); */
     Route::get('contactos', Contacts::class)->name('contacts');
     Route::get('chat/{uuid}', ChatWith::class)->name('chat_with');
+
+    Route::get('seller/{post}', [SellerController::class, 'show'])->name('sellers.show');
+    Route::get('seller/{id}/{uuid}', [SellerController::class, 'seller'])->name('seller');
 
     /* LOG */
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');

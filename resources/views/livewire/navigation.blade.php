@@ -38,7 +38,11 @@
                     @else
                         <a href="{{route('register')}}" class="inline-flex items-center justify-center mt-1 p-2 font-bold text-white hover:text-white bg-purple-600 hover:bg-purple-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">Crear publicación</a>
                     @endif
-                </div>            
+                </div>
+                
+                <div class="inline-flex items-center justify-center mt-1 ml-2 p-2 font-bold text-white hover:text-white bg-yellow-600 hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white rounded-full text-base">
+                    <a href="{{ route('sellers.index') }}">Sé vendedor</a>
+                </div>          
 
             </div>
 

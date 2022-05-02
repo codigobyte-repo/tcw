@@ -8,12 +8,20 @@ class CategoryPosts extends Component
 {
     /* La propiedad category viene de la vista posts\index.blade.php y trae todas las categorías */
     public $category;
+    public $seller;
     
     public $posts = [];
     /* INFO loadPosts https://www.udemy.com/course/crea-un-ecommerce-con-laravel-livewire-tailwind-y-alpine/learn/lecture/26123942#notes */
     public function loadPosts()
     {
-        $this->posts = $this->category->posts()->where('status', 3)->take(15)->get();
+        if($this->seller == 1){
+            
+            $this->posts = $this->category->posts()->where('status', 3)->where('seller', 1)->take(15)->get();
+
+        }else{
+
+            $this->posts = $this->category->posts()->where('status', 3)->take(15)->get();
+        }
 
         /* Emitimos el evento para recargar los posts INFO: https://www.udemy.com/course/crea-un-ecommerce-con-laravel-livewire-tailwind-y-alpine/learn/lecture/26123942#notes*/
         /* Posteriormente para que todas las categorias carguen el script agregamos el id INFO:https://www.udemy.com/course/crea-un-ecommerce-con-laravel-livewire-tailwind-y-alpine/learn/lecture/26124564#notes */
