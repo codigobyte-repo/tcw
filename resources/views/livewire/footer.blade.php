@@ -13,7 +13,7 @@
               </a>
               <div class="mt-4 lg:max-w-sm">
                 <p class="text-sm text-deep-purple-50">
-                  Todo Contenido Web es un sitio creado a partir de la necesidad de encontrar de forma simple y rápida el servicio a su medida.
+                  Wootrap es un sitio creado a partir de la necesidad de encontrar de forma simple y rápida el servicio a su medida.
                 </p>
                 <p class="mt-4 text-sm text-deep-purple-50">
                   Nosotros buscamos los profesionales y de forma segura lo ponemos en contacto con usted.
@@ -76,7 +76,7 @@
           </div>
           <div class="flex flex-col justify-between pt-5 pb-10 border-t border-deep-purple-accent-200 sm:flex-row">
             <p class="text-sm text-gray-100">
-              © {{ date('Y') }} Todo Contenido Web. Derechos reservados | Developed by <a href="http://codigobyte.com.ar" target="_blank" rel="noopener noreferrer"><b> Código Byte</b> </a>
+              © {{ date('Y') }} Wootrap.com Derechos reservados | Developed by <a href="http://codigobyte.com.ar" target="_blank" rel="noopener noreferrer"><b> Código Byte</b> </a>
             </p>
             <div class="flex items-center mt-4 space-x-4 sm:mt-0">
               <a href="/" class="transition-colors duration-300 text-deep-purple-100 hover:text-teal-accent-400">

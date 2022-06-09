@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Publicación aprobada - Todo Contenido Web</title>
+    <title>Publicación aprobada - Wootrap</title>
     <style>
         /* -------------------------------------
             INLINED WITH htmlemail.io/inline
@@ -109,7 +109,7 @@
                 <table class="main" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%; background: #ffffff; border-radius: 3px;">
     
                     <td align="center" bgcolor="#ffffff" style="padding: 40px 0 30px 0;">
-                        <img src="http://todocontenidoweb.com/img/logo.png" alt="Todo Contenido Web" width="100" height="100" style="display: block;" />
+                        <img src="http://wootrap.com/img/logo.png" alt="Todo Contenido Web" width="100" height="100" style="display: block;" />
                     </td>
     
                   <!-- START MAIN CONTENT AREA -->
@@ -128,7 +128,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: auto;">
                                       <tbody>
                                         <tr>
-                                          <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #7042bb; border-radius: 5px; text-align: center;"> <a href="http://todocontenidoweb.com/" target="_blank" style="display: inline-block; color: #ffffff; background-color: #7042bb; border: solid 1px #7042bb; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #7042bb;">¡Accede ahora!</a> </td>
+                                          <td style="font-family: sans-serif; font-size: 14px; vertical-align: top; background-color: #7042bb; border-radius: 5px; text-align: center;"> <a href="http://wootrap.com/" target="_blank" style="display: inline-block; color: #ffffff; background-color: #7042bb; border: solid 1px #7042bb; border-radius: 5px; box-sizing: border-box; cursor: pointer; text-decoration: none; font-size: 14px; font-weight: bold; margin: 0; padding: 12px 25px; text-transform: capitalize; border-color: #7042bb;">¡Accede ahora!</a> </td>
                                         </tr>
                                       </tbody>
                                     </table>
@@ -152,7 +152,7 @@
                   <table border="0" cellpadding="0" cellspacing="0" style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;">
                     <tr>
                       <td class="content-block" style="font-family: sans-serif; vertical-align: top; padding-bottom: 10px; padding-top: 10px; font-size: 12px; color: #999999; text-align: center;">
-                        <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Todo Contenido Web</span>
+                        <span class="apple-link" style="color: #999999; font-size: 12px; text-align: center;">Wootrap</span>
                       </td>
                     </tr>
                   </table>
