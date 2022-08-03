@@ -32,6 +32,6 @@ class ApprovedPost extends Mailable
     public function build()
     {
         return $this->view('mail.approved-post')
-                ->subject('www.todocontenidoweb.com - Publicación aprobada');
+                ->subject('www.wootrap.com - Publicación aprobada');
     }
 }

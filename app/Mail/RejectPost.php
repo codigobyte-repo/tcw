@@ -32,6 +32,6 @@ class RejectPost extends Mailable
     public function build()
     {
         return $this->view('mail.reject-post')
-                ->subject('www.todocontenidoweb.com - Publicación rechazada');
+                ->subject('www.wootrap.com - Publicación rechazada');
     }
 }

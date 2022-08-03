@@ -34,6 +34,6 @@ class NewOrder extends Mailable
     public function build()
     {
         return $this->view('mail.new-order')
-                ->subject('www.todocontenidoweb.com - ¡Felicitaciones! Vendiste un servicio');
+                ->subject('www.wootrap.com - ¡Felicitaciones! Vendiste un servicio');
     }
 }

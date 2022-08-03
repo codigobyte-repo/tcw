@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Administrador: Todo Contenido Web')
+@section('title', 'Administrador: Wootrap')
 
 @section('content_header')
 
@@ -10,7 +10,7 @@
     
     <div class="container px-4 py-5" id="featured-3">
         <h2 class="pb-2 border-bottom">Opciones del sistema</h2>
-        <p>Bienvenido al panel administrativo de <b>Todo Contenido Web</b>. Desde esta sección va poder administrar las configuraciones internas del sistema.</p>
+        <p>Bienvenido al panel administrativo de <b>Wootrap</b>. Desde esta sección va poder administrar las configuraciones internas del sistema.</p>
         <p>Lo invitamos a descubrir las funcionalidades, tenga en cuenta que esta sección trabaja directamente con los datos sensibles del sistema.</p>
 
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">

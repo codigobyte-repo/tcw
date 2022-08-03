@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Administrador: Todo Contenido Web')
+@section('title', 'Administrador: Wootrap')
 
 @section('content_header')
 
